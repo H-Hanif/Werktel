@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Werk Telefoon app – Download{% endblock %}
+
+{% block body %}
+
+    <section class="section" id="download">
+        <div class="container" style="max-width:1050px;">
+
+            <div class="text-center mb-5">
+                <h1 class="section-title mb-2">Download de Werk Telefoon App</h1>
+                <p class="section-subtitle">
+                    Kies jouw platform en begin direct met professioneel bereikbaar zijn — waar je ook werkt.
+                </p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+
+                {# Apple Card #}
+                <div class="col-md-6">
+                    <div class="download-card text-center h-100 p-4">
+                        <div class="platform-icon">
+                            <i class="bi bi-apple"></i>
+                        </div>
+
+                        <h3 class="platform-title">iPhone & iOS</h3>
+                        <p class="platform-text">
+                            Beschikbaar voor alle iPhones vanaf iOS 14 of hoger.
+                            Download via de officiële Apple App Store.
+                        </p>
+
+                        <a href="https://apps.apple.com/us/app/werk-tel/id6502907205" target="_blank" class="store-link">
+                            <img src="{{ asset('img/app-store-glass-icon.webp') }}" alt="Apple App Store"
+                                 class="store-badge">
+                        </a>
+                    </div>
+                </div>
+
+                {# Android Card #}
+                <div class="col-md-6">
+                    <div class="download-card text-center h-100 p-4">
+                        <div class="platform-icon android">
+                            <i class="bi bi-android2"></i>
+                        </div>
+
+                        <h3 class="platform-title">Android toestellen</h3>
+                        <p class="platform-text">
+                            Ondersteund op Samsung, Huawei, OnePlus, Google Pixel en andere Android-toestellen.
+                        </p>
+
+                        <a href="https://play.google.com/store/apps/details?id=nl.werktel.werktelefoon&hl=nl" target="_blank" class="store-link">
+                            <img src="{{ asset('img/google-play-icon-filled-256.webp') }}" alt="Google Play Store"
+                                 class="store-badge">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="small text-center mt-4 text-muted">
+                Heb je nog geen inloggegevens? Neem contact op met je beheerder of leverancier van Werk Telefoon.
+            </p>
+        </div>
+    </section>
+
+
+{% endblock %}

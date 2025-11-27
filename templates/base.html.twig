@@ -13,10 +13,15 @@
     >
 
     <style>
+        /* -----------------------------
+           GLOBAL / ROOT
+        ------------------------------*/
         :root {
-            --wt-green: #28c700;      /* hoofdkleur – felgroen zoals oude site */
-            --wt-green-dark: #1f9f00; /* donkere variant */
-            --wt-green-soft: #ecffe8; /* zachte achtergrond */
+            --wt-green: #28c700;
+            --wt-green-dark: #1f9f00;
+            --wt-green-soft: #ecffe8;
+            --text-dark: #212529;
+            --text-light: #4b5563;
         }
 
         html {
@@ -26,13 +31,14 @@
         body {
             font-family: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
             background-color: #f5f5f5;
-            color: #212529;
+            color: var(--text-dark);
             margin: 0;
             padding: 0;
         }
 
-
-        /* NAVBAR */
+        /* -----------------------------
+           NAVBAR
+        ------------------------------*/
         .navbar-werktel {
             background: var(--wt-green);
             padding: 12px 0;
@@ -41,12 +47,11 @@
         .navbar-werktel .navbar-brand {
             font-size: 1.35rem;
             font-weight: 700;
-            color: #ffffff !important;
+            color: #fff !important;
         }
 
-        .navbar-werktel .navbar-brand .wt-logo {
+        .wt-logo {
             height: 32px;
-            width: auto;
             filter: drop-shadow(0 0 4px rgba(255,255,255,0.5));
             margin-right: 6px;
         }
@@ -56,21 +61,17 @@
             font-weight: 500;
             padding: 8px 12px !important;
             border-radius: 8px;
-            color: #ffffff !important;
-            transition: 0.25s;
+            color: #fff !important;
+            transition: background-color .25s ease, color .25s ease, transform .15s ease;
         }
 
         .navbar-werktel .nav-link:hover,
         .navbar-werktel .nav-link:focus {
-            background: rgba(255,255,255,0.18);
+            background: rgba(255,255,255,.18);
+            color: #fff !important;
+            transform: translateY(-1px);
         }
 
-        .navbar-werktel .navbar-nav {
-            align-items: center;
-            gap: 4px;
-        }
-
-        /* Hamburger menu style */
         .navbar-toggler {
             background-color: rgba(255,255,255,0.3);
             border-radius: 8px;
@@ -81,35 +82,37 @@
             filter: invert(1);
         }
 
-        /* HERO */
+        /* -----------------------------
+           HERO SECTION
+        ------------------------------*/
         .hero-section {
             padding: 90px 0 80px;
             background: radial-gradient(circle at top, #37ff7b 0, #19c700 30%, #049000 65%, #003312 100%);
-            color: #ffffff;
+            color: #fff;
             text-align: center;
         }
 
         .hero-title {
-            font-size: 3rem;
+            font-size: clamp(2.3rem, 4vw, 3rem);
             font-weight: 700;
         }
 
         .hero-subtitle {
             font-size: 1.2rem;
-            opacity: 0.95;
+            opacity: .95;
         }
 
         .hero-logo-wrapper {
             width: 260px;
             height: 260px;
-            margin: 0 auto;
+            margin: 0 auto 1.75rem auto;
             background: var(--wt-green);
             border-radius: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            box-shadow: 0px 20px 80px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
         }
 
         .hero-logo-img {
@@ -118,26 +121,30 @@
             filter: drop-shadow(0 0 18px rgba(255,255,255,0.7));
         }
 
-        /* SECTIONS */
+        /* -----------------------------
+           GENERIC SECTIONS
+        ------------------------------*/
         .section {
             padding: 70px 0;
         }
 
         .section-title {
-            font-weight: 700;
             font-size: 2rem;
+            font-weight: 700;
             color: var(--wt-green-dark);
-            margin-bottom: .5rem;
             text-align: center;
+            margin-bottom: .5rem;
         }
 
         .section-subtitle {
+            text-align: center;
             color: #6c757d;
             margin-bottom: 2rem;
-            text-align: center;
         }
 
-        /* PRODUCT TILES (Apple style) */
+        /* -----------------------------
+           PRODUCT TILES / “ONS BEDRIJF”
+        ------------------------------*/
         .product-grid {
             display: flex;
             flex-direction: column;
@@ -145,60 +152,207 @@
         }
 
         .product-tile {
-            background: #ffffff;
+            background: #fff;
             border-radius: 28px;
             padding: 40px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            gap: 20px;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .product-tile:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 26px 60px rgba(0,0,0,0.12);
+        }
+
+        .product-tile--split {
+            flex-direction: column;
         }
 
         @media (min-width: 768px) {
             .product-tile--split {
                 flex-direction: row;
-                align-items: center;
                 justify-content: space-between;
+                align-items: center;
             }
         }
 
         .product-tile-title {
-            font-weight: 700;
             font-size: 1.6rem;
-            margin-bottom: 12px;
+            font-weight: 700;
+            margin-bottom: .5rem;
         }
 
         .product-tile-text {
-            font-size: 0.98rem;
-            color: #4b5563;
+            color: var(--text-light);
+            font-size: .98rem;
         }
 
         .product-tile-image {
-            margin-top: 20px;
             text-align: center;
         }
 
-        /* FIX IMAGE SIZE */
         .product-tile-image img {
             max-width: 360px;
             width: 100%;
             border-radius: 24px;
-            object-fit: cover;
-            margin: 0 auto;
             box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-            transition: transform .3s ease;
+            transition: transform .3s ease, box-shadow .3s ease;
         }
 
         .product-tile-image img:hover {
             transform: scale(1.05);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.18);
         }
 
-        /* FOOTER */
+        /* -----------------------------
+           DOWNLOAD CARDS (App page)
+        ------------------------------*/
+        .download-card {
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+        }
+
+        .platform-icon {
+            font-size: 54px;
+            margin-bottom: 14px;
+            color: var(--wt-green-dark);
+        }
+
+        .platform-icon.android {
+            color: #3DDC84;
+        }
+
+        .platform-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: .4rem;
+        }
+
+        .platform-text {
+            font-size: .96rem;
+            color: var(--text-light);
+        }
+
+        .store-badge {
+            width: 170px;
+            height: auto;
+            transition: transform .3s ease;
+        }
+
+        .store-badge:hover {
+            transform: scale(1.07);
+        }
+
+        /* -----------------------------
+           FUNCTIE-SLIDER / CAROUSEL
+        ------------------------------*/
+        .feature-carousel-card {
+            border-radius: 26px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .feature-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: .6rem;
+        }
+
+        .feature-description {
+            font-size: .98rem;
+            color: var(--text-light);
+            margin-bottom: .6rem;
+        }
+
+        .feature-slide-img {
+            width: 100%;
+            max-width: 260px;
+            height: auto;
+            border-radius: 22px;
+            margin: 0 auto;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .feature-slide-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 22px 50px rgba(0,0,0,0.16);
+        }
+
+        /* Custom pijlen naast de afbeelding
+           (gebruik in HTML bijv. <button class="carousel-arrow left">‹</button>) */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            border: none;
+            background: #fff;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #4b4b4b;
+            cursor: pointer;
+            transition: transform .2s ease, box-shadow .2s ease, color .2s ease;
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            color: var(--wt-green-dark);
+            transform: translateY(-50%) scale(1.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.22);
+        }
+
+        .carousel-arrow.left {
+            left: -20px;
+        }
+
+        .carousel-arrow.right {
+            right: -20px;
+        }
+
+        @media (max-width: 768px) {
+            .feature-slide-img {
+                max-width: 190px;
+            }
+
+            .carousel-arrow {
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+            }
+
+            .carousel-arrow.left {
+                left: -12px;
+            }
+
+            .carousel-arrow.right {
+                right: -12px;
+            }
+        }
+
+        /* -----------------------------
+           FOOTER
+        ------------------------------*/
         .wt-footer {
             background: var(--wt-green-dark);
-            color: white;
-            padding: 55px 0 30px;
+            color: #fff;
             text-align: center;
-            margin-top: 70px;
+            padding: 55px 0 30px;
         }
 
         .footer-logo {
@@ -208,25 +362,25 @@
 
         .footer-links {
             display: flex;
-            justify-content: center;
             gap: 26px;
+            justify-content: center;
             margin-top: 18px;
             flex-wrap: wrap;
         }
 
         .footer-links a {
             font-weight: 500;
-            text-decoration: none;
             color: #dbffdd;
-            transition: .25s ease;
+            text-decoration: none;
+            transition: color .25s ease, text-decoration .25s ease;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: #ffffff;
             text-decoration: underline;
         }
-
     </style>
+
 
 
 
@@ -239,17 +393,18 @@
     <div class="container">
 
         {# Logo #}
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+        <a class="navbar-brand d-flex align-items-center gap-2"
+           href="{{ app.request.get('_route') == 'app_home' ? '#home' : path('app_home') }}">
             <img src="{{ asset('img/werktell.webp') }}" alt="Werk Tel logo" class="wt-logo">
             <span>Werk Tel</span>
         </a>
 
-        {# Hamburger button for mobile #}
+        {# Hamburger for mobile #}
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        {# Collapsable menu #}
+        {# Menu #}
         <div class="collapse navbar-collapse justify-content-end" id="navMenu">
             <ul class="navbar-nav gap-lg-4 text-center">
 
@@ -273,19 +428,28 @@
                     </a>
                 </li>
 
+                {# 🔥 Scroll link naar sectie op homepage #}
                 <li class="nav-item">
-                    <a class="nav-link"
-                       href="{{ app.request.get('_route') == 'app_home' ? '#werktel-app' : path('app_home') ~ '#werktel-app' }}">
-                        Werk Tel App
+                    <a class="nav-link {{ app.request.get('_route') == 'app_function' ? 'active' : '' }}"
+                       href="{{ path('app_function') }}">
+                        Werk Tel App (Functies)
+                    </a>
+                </li>
+
+
+                {# 🆕 Link naar downloadpagina #}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_app') }}">
+                        Download App
                     </a>
                 </li>
 
             </ul>
         </div>
 
-
     </div>
 </nav>
+
 
 
 {% block body %}{% endblock %}

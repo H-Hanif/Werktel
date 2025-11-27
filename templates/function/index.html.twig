@@ -1,0 +1,581 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Functies – Werk Telefoon{% endblock %}
+
+{% block body %}
+
+    <section class="section">
+        <div class="container" style="max-width:1050px;">
+
+            <div class="text-center mb-5">
+                <h1 class="section-title">Functies van Werk Telefoon</h1>
+                <p class="section-subtitle">
+                    Bekijk in één overzicht hoe Werk Telefoon werkt – stap voor stap in beeld.
+                </p>
+            </div>
+
+            <div class="wt-card p-4 feature-carousel-card">
+
+                <div id="featureCarousel" class="carousel slide" data-bs-ride="false">
+                    <div class="carousel-inner">
+
+                        {# SLIDE 1 – homezonderaccount.webp #}
+                        <div class="carousel-item active">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">
+                                        ‹
+                                    </button>
+
+                                    <img src="{{ asset('img/begin.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Inloggen op Werk Telefoon zonder account">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">
+                                        ›
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Start zonder account</h3>
+                                    <p class="feature-description">
+                                        Op het eerste scherm zie je direct hoe je kunt starten met Werk Telefoon,
+                                        bijvoorbeeld met een QR-code of uitnodiging van je beheerder.
+                                    </p>
+                                    <ul>
+                                        <li>Duidelijke uitleg bij eerste gebruik</li>
+                                        <li>Inloggen zonder ingewikkelde stappen</li>
+                                        <li>Ideaal voor nieuwe gebruikers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 2 – taalbegin.webp #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">
+                                        ‹
+                                    </button>
+
+                                    <img src="{{ asset('img/taalbegin.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Taalkeuze bij eerste start">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">
+                                        ›
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Taal kiezen bij eerste gebruik</h3>
+                                    <p class="feature-description">
+                                        Bij het opstarten kies je direct de taal waarin je met Werk Telefoon wilt werken.
+                                    </p>
+                                    <ul>
+                                        <li>Ondersteuning voor meerdere talen</li>
+                                        <li>Heldere startflow voor nieuwe gebruikers</li>
+                                        <li>Altijd in de taal die jij prettig vindt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 3 – home.webp #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">
+                                        ‹
+                                    </button>
+
+                                    <img src="{{ asset('img/home.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Startscherm van Werk Telefoon">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">
+                                        ›
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Startscherm & overzicht</h3>
+                                    <p class="feature-description">
+                                        Op het startscherm zie je direct je status, recente oproepen en snelle acties.
+                                    </p>
+                                    <ul>
+                                        <li>Overzicht van inkomende en uitgaande gesprekken</li>
+                                        <li>Snel naar bellen, contacten en instellingen</li>
+                                        <li>Rustige, duidelijke interface</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 4 – dashboard.webp #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">
+                                        ‹
+                                    </button>
+
+                                    <img src="{{ asset('img/sidebar.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Dashboard in Werk Telefoon">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">
+                                        ›
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Dashboard & bereikbaarheid</h3>
+                                    <p class="feature-description">
+                                        Via het dashboard zie je in één oogopslag hoe jouw bereikbaarheid is geregeld.
+                                    </p>
+                                    <ul>
+                                        <li>Inzicht in actieve lijnen en wachtrijen</li>
+                                        <li>Snel schakelen tussen profielen</li>
+                                        <li>Ideaal voor teams met veel verkeer</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 5 – contacten.webp #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">
+                                        ‹
+                                    </button>
+
+                                    <img src="{{ asset('img/contacten.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Contacten in Werk Telefoon">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">
+                                        ›
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Contacten & favorieten</h3>
+                                    <p class="feature-description">
+                                        Beheer je zakelijke contacten op één plek en maak favorieten voor de mensen die je vaak belt.
+                                    </p>
+                                    <ul>
+                                        <li>Overzichtelijke zakelijke contactenlijst</li>
+                                        <li>Favorieten voor snelle toegang</li>
+                                        <li>Zoeken binnen grote teams</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 6 – recent.webp #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">
+                                        ‹
+                                    </button>
+
+                                    <img src="{{ asset('img/recent.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Recente oproepen in Werk Telefoon">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">
+                                        ›
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Recente oproepen</h3>
+                                    <p class="feature-description">
+                                        Zie direct wie je recent gebeld hebt of door wie je gebeld bent.
+                                    </p>
+                                    <ul>
+                                        <li>Snel terugbellen vanuit de lijst</li>
+                                        <li>Filter op gemiste oproepen</li>
+                                        <li>Handig bij drukke dagen</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 7 – taal.webp #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">
+                                        ‹
+                                    </button>
+
+                                    <img src="{{ asset('img/apptaal.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Taalinstellingen in Werk Telefoon">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">
+                                        ›
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Taalinstellingen</h3>
+                                    <p class="feature-description">
+                                        Verander op elk moment de taal van de app, zonder opnieuw te hoeven inloggen.
+                                    </p>
+                                    <ul>
+                                        <li>Snel wisselen tussen talen</li>
+                                        <li>Gebruikersvriendelijke instellingen</li>
+                                        <li>Toegankelijk voor internationale teams</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 8 – problem.webp #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">
+                                        ‹
+                                    </button>
+
+                                    <img src="{{ asset('img/problem.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Probleem melden in Werk Telefoon">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">
+                                        ›
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Problemen melden</h3>
+                                    <p class="feature-description">
+                                        Loop je ergens tegenaan? Meld direct een probleem of vraag hulp via de app.
+                                    </p>
+                                    <ul>
+                                        <li>Snel contact met support</li>
+                                        <li>Duidelijke omschrijving vanuit de app</li>
+                                        <li>Minder heen-en-weer mailen</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 9 – instelling.webp #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">
+                                        ‹
+                                    </button>
+
+                                    <img src="{{ asset('img/instelling.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Instellingen scherm in Werk Telefoon">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">
+                                        ›
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Instellingen & voorkeuren</h3>
+                                    <p class="feature-description">
+                                        Pas eenvoudig je voorkeuren aan, zoals meldingen, geluiden en doorverbind-instellingen.
+                                    </p>
+                                    <ul>
+                                        <li>Alles op één overzichtelijke plek</li>
+                                        <li>Geen technisch portaal nodig</li>
+                                        <li>Geschikt voor elke gebruiker</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 10 – color.webp #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">
+                                        ‹
+                                    </button>
+
+                                    <img src="{{ asset('img/color.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Kleur- of thema-instellingen">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">
+                                        ›
+                                    </button>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Thema & weergave</h3>
+                                    <p class="feature-description">
+                                        Pas de uitstraling van de app aan aan jouw voorkeur, zodat je prettig en rustig kunt werken.
+                                    </p>
+                                    <ul>
+                                        <li>Consistente, professionele look</li>
+                                        <li>Duidelijke kleuren voor status en acties</li>
+                                        <li>Gebruiksvriendelijk ontwerp</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# -------- EXTRA SLIDES 11–15 (PLACEHOLDERS) -------- #}
+
+                        {# SLIDE 11 – feature11.webp (PAS DIT AAN) #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">‹</button>
+
+                                    <img src="{{ asset('img/feature11.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Extra functie 11">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">›</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Extra functie 11</h3>
+                                    <p class="feature-description">
+                                        Vervang deze tekst en afbeelding door jouw elfde functie van de app.
+                                    </p>
+                                    <ul>
+                                        <li>Punt 1 voor deze functie</li>
+                                        <li>Punt 2 voor deze functie</li>
+                                        <li>Punt 3 voor deze functie</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 12 – feature12.webp (PAS DIT AAN) #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">‹</button>
+
+                                    <img src="{{ asset('img/feature12.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Extra functie 12">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">›</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Extra functie 12</h3>
+                                    <p class="feature-description">
+                                        Vul hier de beschrijving in van functie 12 van Werk Telefoon.
+                                    </p>
+                                    <ul>
+                                        <li>Punt 1</li>
+                                        <li>Punt 2</li>
+                                        <li>Punt 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 13 – feature13.webp (PAS DIT AAN) #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">‹</button>
+
+                                    <img src="{{ asset('img/feature13.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Extra functie 13">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">›</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Extra functie 13</h3>
+                                    <p class="feature-description">
+                                        Beschrijf hier een extra belangrijke functie van Werk Telefoon.
+                                    </p>
+                                    <ul>
+                                        <li>Punt 1</li>
+                                        <li>Punt 2</li>
+                                        <li>Punt 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 14 – feature14.webp (PAS DIT AAN) #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">‹</button>
+
+                                    <img src="{{ asset('img/feature14.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Extra functie 14">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">›</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Extra functie 14</h3>
+                                    <p class="feature-description">
+                                        Nog een functie van Werk Telefoon die je visueel kunt tonen.
+                                    </p>
+                                    <ul>
+                                        <li>Punt 1</li>
+                                        <li>Punt 2</li>
+                                        <li>Punt 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {# SLIDE 15 – feature15.webp (PAS DIT AAN) #}
+                        <div class="carousel-item">
+                            <div class="row align-items-center g-4">
+                                <div class="col-md-6 position-relative d-flex align-items-center justify-content-center">
+                                    <button class="feature-arrow feature-arrow-left"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="prev">‹</button>
+
+                                    <img src="{{ asset('img/feature15.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Extra functie 15">
+
+                                    <button class="feature-arrow feature-arrow-right"
+                                            type="button"
+                                            data-bs-target="#featureCarousel"
+                                            data-bs-slide="next">›</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3 class="feature-title">Extra functie 15</h3>
+                                    <p class="feature-description">
+                                        Sluit de carousel af met een laatste sterke functie of samenvatting.
+                                    </p>
+                                    <ul>
+                                        <li>Punt 1</li>
+                                        <li>Punt 2</li>
+                                        <li>Punt 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="{{ path('app_app') }}" class="btn btn-wt-primary btn-lg">
+                    Download Werk Telefoon
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+{% endblock %}
