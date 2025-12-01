@@ -86,39 +86,165 @@
            HERO SECTION
         ------------------------------*/
         .hero-section {
-            padding: 90px 0 80px;
-            background: radial-gradient(circle at top, #37ff7b 0, #19c700 30%, #049000 65%, #003312 100%);
-            color: #fff;
+            padding: 110px 0 120px;
+            background: radial-gradient(circle at top, #37ff7b 0, #19c700 35%, #049000 70%, #003312 100%);
+            color: #ffffff;
             text-align: center;
         }
 
-        .hero-title {
-            font-size: clamp(2.3rem, 4vw, 3rem);
-            font-weight: 700;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            opacity: .95;
+        .hero-inner {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 42px 32px 54px;
+            border-radius: 32px;
+            background: linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.18),
+                    rgba(255,255,255,0.05)
+            );
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.18);
         }
 
         .hero-logo-wrapper {
-            width: 260px;
-            height: 260px;
-            margin: 0 auto 1.75rem auto;
-            background: var(--wt-green);
-            border-radius: 40px;
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 18px auto;
+            border-radius: 32px;
+            background: radial-gradient(circle at top, #46ff8a 0, #20c700 50%, #049000 100%);
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             overflow: hidden;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.45);
         }
 
-        .hero-logo-img {
-            width: 68%;
+        .hero-logo-polished {
+            width: 80px;
             height: auto;
-            filter: drop-shadow(0 0 18px rgba(255,255,255,0.7));
+            filter: drop-shadow(0 0 14px rgba(255,255,255,0.7));
+            transition: transform .25s ease-in-out;
+        }
+
+        .hero-logo-polished:hover {
+            transform: scale(1.06);
+        }
+
+        .hero-orb {
+            position: absolute;
+            border-radius: 999px;
+            opacity: 0.75;
+            filter: blur(1px);
+            animation: floatOrb 18s ease-in-out infinite alternate;
+        }
+
+        .hero-orb.orb-1 {
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle at 30% 30%, #ffffff 0, #8bffb7 40%, transparent 80%);
+            top: -18px;
+            left: -18px;
+        }
+
+        .hero-orb.orb-2 {
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle at 20% 30%, #ffffff 0, #c8ff6a 35%, transparent 85%);
+            bottom: -22px;
+            right: -18px;
+        }
+
+        .hero-orb.orb-3 {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 20% 30%, #ffffff 0, #7df0ff 30%, transparent 80%);
+            top: 10px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(10px, -14px, 0); }
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: .02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: .95;
+        }
+
+        .hero-body {
+            font-size: 0.98rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.92;
+        }
+
+        .hero-tagline {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .hero-button-group {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        .hero-btn-primary {
+            background: #ffffff;
+            color: var(--wt-green-dark);
+            padding: 16px 34px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 999px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+            transition: .25s ease;
+        }
+
+        .hero-btn-primary:hover {
+            background: #f3fff5;
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+        }
+
+        .hero-btn-outline {
+            padding: 16px 34px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 999px;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            background: transparent;
+            transition: .25s ease;
+        }
+
+        .hero-btn-outline:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 576px) {
+            .hero-title { font-size: 2.1rem; }
+            .hero-inner { padding: 32px 22px 42px; }
+            .hero-btn-primary,
+            .hero-btn-outline {
+                width: 100%;
+                font-size: 1rem;
+                padding: 14px 20px;
+            }
         }
 
         /* -----------------------------
@@ -142,115 +268,313 @@
             margin-bottom: 2rem;
         }
 
-        /* -----------------------------
-           PRODUCT TILES / “ONS BEDRIJF”
-        ------------------------------*/
-        .product-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
+        .section-subtitle--compact {
+            margin-top: -6px;
+            margin-bottom: 28px;
         }
 
-        .product-tile {
-            background: #fff;
-            border-radius: 28px;
-            padding: 40px;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+        /* -----------------------------
+           FEATURE SECTIONS (ONS BEDRIJF / DIENSTEN)
+        ------------------------------*/
+        .feature-section {
+            padding: 80px 0;
+            background: #f5f7fb;
+        }
+
+        .feature-section--alt {
+            background: #ffffff;
+        }
+
+        .section-header {
+            max-width: 720px;
+            margin: 0 auto 32px auto;
+        }
+
+        .section-header .section-subtitle {
+            margin-bottom: 0;
+        }
+
+        .feature-row {
+            position: relative;
+            max-width: 980px;
+            margin: 0 auto 28px auto;
+            padding: 24px 26px;
+            border-radius: 24px;
+            background: #ffffff;
+            box-shadow: 0 16px 40px rgba(15,23,42,0.08);
             display: flex;
             flex-direction: column;
             gap: 20px;
+            overflow: hidden;
             transition: transform .25s ease, box-shadow .25s ease;
         }
 
-        .product-tile:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 26px 60px rgba(0,0,0,0.12);
+        .feature-row::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--wt-green), #16a34a);
+            opacity: 0.9;
         }
 
-        .product-tile--split {
-            flex-direction: column;
+        .feature-row:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 55px rgba(15,23,42,0.12);
+        }
+
+        .feature-row--reverse {
+            flex-direction: column-reverse;
         }
 
         @media (min-width: 768px) {
-            .product-tile--split {
+            .feature-row {
+                padding: 26px 34px;
                 flex-direction: row;
-                justify-content: space-between;
                 align-items: center;
+            }
+
+            .feature-row--reverse {
+                flex-direction: row-reverse;
             }
         }
 
-        .product-tile-title {
-            font-size: 1.6rem;
+        .feature-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .feature-eyebrow {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-weight: 600;
+            color: var(--wt-green-dark);
+            margin-bottom: 4px;
+        }
+
+        .feature-title {
+            font-size: 1.55rem;
             font-weight: 700;
-            margin-bottom: .5rem;
+            margin-bottom: 8px;
         }
 
-        .product-tile-text {
+        .feature-description {
+            font-size: 0.96rem;
             color: var(--text-light);
-            font-size: .98rem;
+            margin-bottom: 10px;
         }
 
-        .product-tile-image {
+        .feature-text ul {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .feature-text a {
+            color: var(--wt-green-dark);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .feature-text a:hover {
+            text-decoration: underline;
+        }
+
+        .feature-media {
+            flex: 0 0 auto;
             text-align: center;
         }
 
-        .product-tile-image img {
-            max-width: 360px;
+        .feature-media img {
+            max-width: 240px;
             width: 100%;
-            border-radius: 24px;
+            border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.12);
             transition: transform .3s ease, box-shadow .3s ease;
         }
 
-        .product-tile-image img:hover {
-            transform: scale(1.05);
+        .feature-media img:hover {
+            transform: scale(1.04);
             box-shadow: 0 20px 45px rgba(0,0,0,0.18);
         }
 
-        /* -----------------------------
-           DOWNLOAD CARDS (App page)
-        ------------------------------*/
+        @media (max-width: 575.98px) {
+            .feature-row {
+                padding: 20px 18px;
+            }
+
+            .feature-media img {
+                max-width: 200px;
+            }
+        }
+
+
+
+
+
+        /* ------------------------------------------
+   DOWNLOAD BUTTON (Modern Glass + Glow)
+------------------------------------------*/
+        .btn-download {
+            display: inline-block;
+            background: linear-gradient(135deg, #28c700, #20a800);
+            color: #ffffff;
+            padding: 16px 42px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 16px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0, 180, 60, 0.25);
+            border: 1px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(6px);
+            transition: all .25s ease, transform .2s ease;
+        }
+
+        /* Hover effect */
+        .btn-download:hover {
+            background: linear-gradient(135deg, #32db00, #22b900);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0, 180, 60, 0.35);
+        }
+
+        /* Active click animation */
+        .btn-download:active {
+            transform: scale(0.97);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Mobile full width */
+        @media(max-width: 576px){
+            .btn-download {
+                width: 100%;
+                font-size: 1.15rem;
+                padding: 18px 0;
+                border-radius: 20px;
+            }
+        }
+        /* ===========================
+           DOWNLOAD SECTION
+           (App Store + Google Play)
+        =========================== */
+
+        #download {
+            padding: 80px 0;
+            background: #f5f7fb; /* licht grijs/blauw blok */
+        }
+
+        #download .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--wt-green-dark);
+            margin-bottom: .5rem;
+        }
+
+        #download .section-subtitle {
+            max-width: 620px;
+            margin: 0 auto 2.2rem auto;
+            color: #6b7280;
+            font-size: .98rem;
+        }
+
+        /* GRID – 2 naast elkaar op desktop, onder elkaar op mobiel */
+        #download .row {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 767.98px) {
+            #download .col-md-6 {
+                margin-bottom: 14px;
+            }
+        }
+
+        /* KAARTEN */
         .download-card {
-            background: #fff;
-            border-radius: 22px;
-            box-shadow: 0 18px 45px rgba(0,0,0,0.08);
-            transition: transform .3s ease, box-shadow .3s ease;
+            position: relative;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 32px 26px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .download-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at top, rgba(40, 199, 0, 0.18), transparent 55%);
+            opacity: 0;
+            transition: opacity .25s ease;
+            z-index: -1;
         }
 
         .download-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 24px 55px rgba(15, 23, 42, 0.14);
+            border-color: rgba(74, 222, 128, 0.6);
         }
 
+        .download-card:hover::before {
+            opacity: 1;
+        }
+
+        /* ICON BOVENIN */
         .platform-icon {
-            font-size: 54px;
+            font-size: 52px;
             margin-bottom: 14px;
-            color: var(--wt-green-dark);
+            color: #111827;
         }
 
         .platform-icon.android {
-            color: #3DDC84;
+            color: #3DDC84; /* officiële Android-groen tint */
         }
 
+        /* TITEL + TEKST */
         .platform-title {
             font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: .4rem;
+            color: #111827;
         }
 
         .platform-text {
             font-size: .96rem;
             color: var(--text-light);
+            max-width: 320px;
+            margin: 0 auto 18px auto;
+        }
+
+        /* STORE BADGE */
+        .store-link {
+            display: inline-block;
         }
 
         .store-badge {
-            width: 170px;
+            width: 190px;
+            max-width: 100%;
             height: auto;
-            transition: transform .3s ease;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+            transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
         }
 
         .store-badge:hover {
-            transform: scale(1.07);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.35);
+            filter: saturate(1.05);
+        }
+
+        /* KLEINE DISCLAIMER TEKST ONDERAAN */
+        #download .text-muted {
+            font-size: .86rem;
+            margin-top: 22px !important;
+            color: #9ca3af !important;
         }
 
         /* -----------------------------
@@ -259,18 +583,6 @@
         .feature-carousel-card {
             border-radius: 26px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-        }
-
-        .feature-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: .6rem;
-        }
-
-        .feature-description {
-            font-size: .98rem;
-            color: var(--text-light);
-            margin-bottom: .6rem;
         }
 
         .feature-slide-img {
@@ -288,59 +600,59 @@
             box-shadow: 0 22px 50px rgba(0,0,0,0.16);
         }
 
-        /* Custom pijlen naast de afbeelding
-           (gebruik in HTML bijv. <button class="carousel-arrow left">‹</button>) */
-        .carousel-arrow {
+        /* ✅ Pijlen naast de afbeeldingen */
+        .feature-slide-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .feature-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 34px;
-            height: 34px;
-            border-radius: 999px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
             border: none;
-            background: #fff;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            background: #ffffff;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 20px;
-            font-weight: 600;
-            color: #4b4b4b;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
             cursor: pointer;
-            transition: transform .2s ease, box-shadow .2s ease, color .2s ease;
-            z-index: 10;
+            transition: all .2s ease-in-out;
+            z-index: 5;
         }
 
-        .carousel-arrow:hover {
+        .feature-arrow:hover {
+            background: #eaffea;
             color: var(--wt-green-dark);
-            transform: translateY(-50%) scale(1.08);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.22);
+            transform: translateY(-50%) scale(1.12);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.22);
         }
 
-        .carousel-arrow.left {
-            left: -20px;
+        .feature-arrow-left {
+            left: 30px;
         }
 
-        .carousel-arrow.right {
-            right: -20px;
+        .feature-arrow-right {
+            right: 30px;
         }
 
         @media (max-width: 768px) {
-            .feature-slide-img {
-                max-width: 190px;
-            }
-
-            .carousel-arrow {
+            .feature-arrow {
                 width: 30px;
                 height: 30px;
                 font-size: 18px;
             }
-
-            .carousel-arrow.left {
+            .feature-arrow-left {
                 left: -12px;
             }
-
-            .carousel-arrow.right {
+            .feature-arrow-right {
                 right: -12px;
             }
         }
@@ -385,6 +697,8 @@
 
 
 
+
+
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
@@ -411,20 +725,14 @@
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ app.request.get('_route') == 'app_home' ? '#home' : path('app_home') ~ '#home' }}">
-                        Home
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_contact') }}">
-                        Contact
+                        🏠 Home
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ app.request.get('_route') == 'app_home' ? '#ons-bedrijf' : path('app_home') ~ '#ons-bedrijf' }}">
-                        Ons bedrijf
+                        🧩 Over ons
                     </a>
                 </li>
 
@@ -432,18 +740,22 @@
                 <li class="nav-item">
                     <a class="nav-link {{ app.request.get('_route') == 'app_function' ? 'active' : '' }}"
                        href="{{ path('app_function') }}">
-                        Werk Tel App (Functies)
+                        📱 App Demo & Functies
                     </a>
                 </li>
-
 
                 {# 🆕 Link naar downloadpagina #}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_app') }}">
-                        Download App
+                        ⬇️ Download App
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_contact') }}">
+                        ✉️ Contact
+                    </a>
+                </li>
             </ul>
         </div>
 
