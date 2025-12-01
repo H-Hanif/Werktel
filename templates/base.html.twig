@@ -274,7 +274,8 @@
         }
 
         /* -----------------------------
-           FEATURE SECTIONS (ONS BEDRIJF / DIENSTEN)
+           FEATURE SECTIONS
+           (Ons bedrijf / Onze diensten)
         ------------------------------*/
         .feature-section {
             padding: 80px 0;
@@ -412,171 +413,6 @@
             }
         }
 
-
-
-
-
-        /* ------------------------------------------
-   DOWNLOAD BUTTON (Modern Glass + Glow)
-------------------------------------------*/
-        .btn-download {
-            display: inline-block;
-            background: linear-gradient(135deg, #28c700, #20a800);
-            color: #ffffff;
-            padding: 16px 42px;
-            font-size: 1.25rem;
-            font-weight: 700;
-            border-radius: 16px;
-            text-decoration: none;
-            box-shadow: 0 8px 25px rgba(0, 180, 60, 0.25);
-            border: 1px solid rgba(255,255,255,0.25);
-            backdrop-filter: blur(6px);
-            transition: all .25s ease, transform .2s ease;
-        }
-
-        /* Hover effect */
-        .btn-download:hover {
-            background: linear-gradient(135deg, #32db00, #22b900);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(0, 180, 60, 0.35);
-        }
-
-        /* Active click animation */
-        .btn-download:active {
-            transform: scale(0.97);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-        }
-
-        /* Mobile full width */
-        @media(max-width: 576px){
-            .btn-download {
-                width: 100%;
-                font-size: 1.15rem;
-                padding: 18px 0;
-                border-radius: 20px;
-            }
-        }
-        /* ===========================
-           DOWNLOAD SECTION
-           (App Store + Google Play)
-        =========================== */
-
-        #download {
-            padding: 80px 0;
-            background: #f5f7fb; /* licht grijs/blauw blok */
-        }
-
-        #download .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--wt-green-dark);
-            margin-bottom: .5rem;
-        }
-
-        #download .section-subtitle {
-            max-width: 620px;
-            margin: 0 auto 2.2rem auto;
-            color: #6b7280;
-            font-size: .98rem;
-        }
-
-        /* GRID – 2 naast elkaar op desktop, onder elkaar op mobiel */
-        #download .row {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 767.98px) {
-            #download .col-md-6 {
-                margin-bottom: 14px;
-            }
-        }
-
-        /* KAARTEN */
-        .download-card {
-            position: relative;
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 32px 26px;
-            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-            border: 1px solid rgba(148, 163, 184, 0.25);
-        }
-
-        .download-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            background: radial-gradient(circle at top, rgba(40, 199, 0, 0.18), transparent 55%);
-            opacity: 0;
-            transition: opacity .25s ease;
-            z-index: -1;
-        }
-
-        .download-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 24px 55px rgba(15, 23, 42, 0.14);
-            border-color: rgba(74, 222, 128, 0.6);
-        }
-
-        .download-card:hover::before {
-            opacity: 1;
-        }
-
-        /* ICON BOVENIN */
-        .platform-icon {
-            font-size: 52px;
-            margin-bottom: 14px;
-            color: #111827;
-        }
-
-        .platform-icon.android {
-            color: #3DDC84; /* officiële Android-groen tint */
-        }
-
-        /* TITEL + TEKST */
-        .platform-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: .4rem;
-            color: #111827;
-        }
-
-        .platform-text {
-            font-size: .96rem;
-            color: var(--text-light);
-            max-width: 320px;
-            margin: 0 auto 18px auto;
-        }
-
-        /* STORE BADGE */
-        .store-link {
-            display: inline-block;
-        }
-
-        .store-badge {
-            width: 190px;
-            max-width: 100%;
-            height: auto;
-            border-radius: 14px;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
-            transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
-        }
-
-        .store-badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.35);
-            filter: saturate(1.05);
-        }
-
-        /* KLEINE DISCLAIMER TEKST ONDERAAN */
-        #download .text-muted {
-            font-size: .86rem;
-            margin-top: 22px !important;
-            color: #9ca3af !important;
-        }
-
         /* -----------------------------
            FUNCTIE-SLIDER / CAROUSEL
         ------------------------------*/
@@ -600,61 +436,177 @@
             box-shadow: 0 22px 50px rgba(0,0,0,0.16);
         }
 
-        /* ✅ Pijlen naast de afbeeldingen */
-        .feature-slide-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .feature-arrow {
+        /* Pijlen specifiek naast de afbeelding (zoals nu) */
+        .carousel-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
             border: none;
-            background: #ffffff;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            background: #fff;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-size: 22px;
-            font-weight: 700;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #4b4b4b;
             cursor: pointer;
-            transition: all .2s ease-in-out;
-            z-index: 5;
+            transition: transform .2s ease, box-shadow .2s ease, color .2s ease;
+            z-index: 10;
         }
 
-        .feature-arrow:hover {
-            background: #eaffea;
+        .carousel-arrow:hover {
             color: var(--wt-green-dark);
-            transform: translateY(-50%) scale(1.12);
-            box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+            transform: translateY(-50%) scale(1.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.22);
         }
 
-        .feature-arrow-left {
-            left: 30px;
-        }
-
-        .feature-arrow-right {
-            right: 30px;
-        }
+        .carousel-arrow-left { left: -16px; }
+        .carousel-arrow-right { right: -16px; }
 
         @media (max-width: 768px) {
-            .feature-arrow {
+            .carousel-arrow {
                 width: 30px;
                 height: 30px;
                 font-size: 18px;
             }
-            .feature-arrow-left {
-                left: -12px;
+            .carousel-arrow-left { left: -10px; }
+            .carousel-arrow-right { right: -10px; }
+        }
+        /* =========================================
+           DOWNLOAD - Minimal Apple Style
+        ========================================= */
+
+        #download {
+            padding: 80px 0;
+            background: #f5f7fb;
+        }
+
+        #download .platform-title {
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--wt-green-dark);
+            margin-bottom: .2rem;
+        }
+
+        #download .platform-text {
+            font-size: .95rem;
+            color: var(--text-light);
+            margin-bottom: 18px;
+        }
+
+        /* IMAGE STYLE — groot en clean */
+        .download-img {
+            width: 100%;
+            max-width: 580px; /* <— hier mee wordt hij groter */
+            border-radius: 22px;
+            box-shadow: 0 14px 38px rgba(10, 50, 20, 0.26);
+            transition: .25s ease;
+        }
+
+
+        /* Hover glow effect */
+        .download-img:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.35);
+            filter: saturate(1.15);
+            cursor: pointer;
+        }
+
+
+        /* Mobile scaling */
+        @media (max-width: 768px) {
+            .download-img {
+                max-width: 95%;
             }
-            .feature-arrow-right {
-                right: -12px;
-            }
+        }
+
+
+
+        /* Header-boven-beeld (titel + korte tekst) */
+        .platform-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .platform-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: .2rem;
+            color: #111827;
+        }
+
+        .platform-text {
+            font-size: .96rem;
+            color: var(--text-light);
+            max-width: 360px;
+            margin: 0 auto 12px auto;
+        }
+
+        /* KAART – nu één grote image-card */
+        .download-card {
+            position: relative;
+            background: #ffffff;
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 22px 55px rgba(15, 23, 42, 0.10);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            width: 100%;
+            height: 260px; /* hoger gemaakt zodat de afbeelding goed zichtbaar is */
+        }
+
+        /* Glow effect bij hover */
+        .download-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at top, rgba(40, 199, 0, 0.18), transparent 55%);
+            opacity: 0;
+            transition: opacity .25s ease;
+            z-index: -1;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 65px rgba(15, 23, 42, 0.18);
+            border-color: rgba(74, 222, 128, 0.8);
+        }
+
+        .download-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Afbeelding vult nu bijna de hele card */
+        .download-card-img,
+        .store-badge {
+            display: block;
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            margin: auto;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+            transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+        }
+
+        /* Hover op de image zelf */
+        .download-card-img:hover,
+        .store-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.35);
+            filter: saturate(1.05);
+        }
+
+        /* KLEINE DISCLAIMER ONDERAAN */
+        #download .text-muted {
+            font-size: .86rem;
+            margin-top: 22px !important;
+            color: #9ca3af !important;
         }
 
         /* -----------------------------
@@ -691,6 +643,7 @@
             color: #ffffff;
             text-decoration: underline;
         }
+
     </style>
 
 

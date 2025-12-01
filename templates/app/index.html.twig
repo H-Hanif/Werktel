@@ -14,44 +14,26 @@
                 </p>
             </div>
 
-            <div class="row g-4 justify-content-center">
+            <div class="row g-5 justify-content-center">
 
-                {# Apple Card #}
-                <div class="col-md-6">
-                    <div class="download-card text-center h-100 p-4">
-                        <div class="platform-icon">
-                            <i class="bi bi-apple"></i>
-                        </div>
+                <!-- APPLE -->
+                <div class="col-md-6 text-center">
+                    <h3 class="platform-title">🍏 iPhone & iOS</h3>
+                    <p class="platform-text">Beschikbaar voor iOS 14 en hoger.</p>
 
-                        <h3 class="platform-title">iPhone & iOS</h3>
-                        <p class="platform-text">
-                            Beschikbaar voor alle iPhones vanaf iOS 14 of hoger.
-                        </p>
-
-                        <a href="https://apps.apple.com/us/app/werk-tel/id6502907205" target="_blank" class="store-link">
-                            <img src="{{ asset('img/werktellapple.webp') }}" alt="Apple App Store"
-                                 class="store-badge">
-                        </a>
-                    </div>
+                    <a href="https://apps.apple.com/us/app/werk-tel/id6502907205" target="_blank">
+                        <img src="{{ asset('img/werktellapple.webp') }}" class="download-img" alt="Download via App Store">
+                    </a>
                 </div>
 
-                {# Android Card #}
-                <div class="col-md-6">
-                    <div class="download-card text-center h-100 p-4">
-                        <div class="platform-icon android">
-                            <i class="bi bi-android2"></i>
-                        </div>
+                <!-- ANDROID -->
+                <div class="col-md-6 text-center">
+                    <h3 class="platform-title">🤖 Android toestellen</h3>
+                    <p class="platform-text">Ondersteund op Samsung, Huawei, OnePlus en meer.</p>
 
-                        <h3 class="platform-title">Android toestellen</h3>
-                        <p class="platform-text">
-                            Ondersteund op Samsung, Huawei, OnePlus, Google Pixel en andere Android-toestellen.
-                        </p>
-
-                        <a href="https://play.google.com/store/apps/details?id=nl.werktel.werktelefoon&hl=nl" target="_blank" class="store-link">
-                            <img src="{{ asset('img/werktellgoogle.webp') }}" alt="Google Play Store"
-                                 class="store-badge">
-                        </a>
-                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=nl.werktel.werktelefoon&hl=nl" target="_blank">
+                        <img src="{{ asset('img/werktellgoogle.webp') }}" class="download-img" alt="Download via Google Play">
+                    </a>
                 </div>
 
             </div>
@@ -61,6 +43,7 @@
             </p>
         </div>
     </section>
+
 
 
 {% endblock %}
