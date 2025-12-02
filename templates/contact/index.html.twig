@@ -3,60 +3,106 @@
 {% block title %}Contact – Werk Telefoon{% endblock %}
 
 {% block body %}
-    <section class="section">
-        <div class="container" style="max-width: 840px;">
+    <section class="section contact-section">
+        <div class="container" style="max-width: 980px;">
 
-            <h1 class="section-title">Contact</h1>
-            <p class="section-subtitle">
-                Stel je vraag over Werk Telefoon of laat je gegevens achter, dan nemen we zo snel mogelijk contact met je op.
-            </p>
+            <div class="section-header text-center mb-4">
+                <h1 class="section-title mb-2">Contact</h1>
+                <p class="section-subtitle">
+                    Heb je een vraag over Werk Telefoon, wil je een demo plannen of partner worden?
+                    Laat je gegevens achter en we nemen zo snel mogelijk contact met je op.
+                </p>
+            </div>
 
-            {# Succesmelding wanneer contact.php redirect doet: /contact?success=1 #}
+            {# Succesmelding vanuit contact.php: /contact?success=1 #}
             {% if app.request.query.get('success') %}
-                <div class="alert alert-success">
-                    🎉 Bedankt! Je bericht is succesvol verzonden. We nemen zo snel mogelijk contact met je op.
+                <div class="alert alert-success mb-4">
+                    🎉 <strong>Bedankt!</strong> Je bericht is succesvol verzonden.
+                    We reageren doorgaans binnen één werkdag.
                 </div>
             {% endif %}
 
-            <div class="wt-card p-4">
+            <div class="row g-4 align-items-stretch">
 
-                <form action="{{ asset('contact.php') }}" method="post" novalidate>
+                {# Linkerkant – informatieblok #}
+                <div class="col-lg-5">
+                    <div class="wt-card h-100 p-4 contact-info-card">
+                        <h2 class="h5 mb-3 text-success">Hoe kunnen we je helpen?</h2>
+                        <p class="mb-3 text-muted small">
+                            We denken graag met je mee over:
+                        </p>
+                        <ul class="list-unstyled mb-4 text-muted small">
+                            <li>• Implementatie van Werk Telefoon binnen je organisatie</li>
+                            <li>• Integratie met je huidige telefoniesysteem of VoIP-platform</li>
+                            <li>• Partner- of reseller­mogelijkheden</li>
+                            <li>• Algemene vragen over functies, prijzen of ondersteuning</li>
+                        </ul>
 
-                    {# Honeypot veld tegen spam bots #}
-                    <div style="display:none;">
-                        <label>Laat dit veld leeg</label>
-                        <input type="text" name="_honey" value="">
+                        <div class="small text-muted mb-3">
+                            <strong>Zakelijke openingstijden</strong><br>
+                            Maandag t/m vrijdag<br>
+                            09:00 – 17:00 uur
+                        </div>
+
+                        <div class="small text-muted">
+                            Liever direct mailen?<br>
+                            <a href="mailto:info@werktel.nl" class="contact-link">
+                                info@werktel.nl
+                            </a>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Naam *</label>
-                        <input type="text" name="Naam" class="form-control" required>
+                {# Rechterkant – formulier #}
+                <div class="col-lg-7">
+                    <div class="wt-card p-4 contact-form-card">
+                        <h2 class="h5 mb-3">Stuur ons een bericht</h2>
+                        <p class="text-muted small mb-4">
+                            Vul het formulier zo volledig mogelijk in. We gebruiken je gegevens alleen om je vraag te beantwoorden.
+                        </p>
+
+                        <form action="{{ asset('contact.php') }}" method="post" novalidate>
+                            {# Honeypot veld tegen spam bots #}
+                            <div style="display:none;">
+                                <label>Laat dit veld leeg</label>
+                                <input type="text" name="_honey" value="">
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Naam *</label>
+                                    <input type="text" name="Naam" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Bedrijf</label>
+                                    <input type="text" name="Bedrijf" class="form-control">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">E-mailadres *</label>
+                                    <input type="email" name="email" class="form-control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">Telefoonnummer</label>
+                                    <input type="text" name="Telefoonnummer" class="form-control">
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">Bericht *</label>
+                                    <textarea name="Bericht" rows="5" class="form-control" required
+                                              placeholder="Beschrijf kort je vraag of situatie..."></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-wt-primary w-100 mt-4 py-3">
+                                📩 Verstuur bericht
+                            </button>
+                        </form>
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Bedrijf</label>
-                        <input type="text" name="Bedrijf" class="form-control">
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">E-mailadres *</label>
-                        <input type="email" name="email" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Telefoonnummer</label>
-                        <input type="text" name="Telefoonnummer" class="form-control">
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Bericht *</label>
-                        <textarea name="Bericht" rows="5" class="form-control" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-wt-primary w-100 py-3">
-                        📩 Verstuur bericht
-                    </button>
-                </form>
             </div>
         </div>
     </section>
