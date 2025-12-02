@@ -414,13 +414,16 @@
         }
 
         /* -----------------------------
-        /* FUNCTIE-SLIDER / CAROUSEL */
+           FUNCTIE-SLIDER / CAROUSEL
+        ------------------------------*/
         .feature-carousel-card {
             border-radius: 26px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.08);
             display: flex;
-            justify-content: center; /* ★ Centreert afbeelding horizontaal */
+            justify-content: center;
             align-items: center;
+            position: relative; /* nodig voor absolute arrows */
+            padding: 24px 32px;
         }
 
         .feature-slide-img {
@@ -428,9 +431,16 @@
             max-width: 260px;
             height: auto;
             border-radius: 22px;
-            margin: 0 auto; /* zorgt dat hij binnen container blijft */
+            margin: 0 auto;
             box-shadow: 0 18px 40px rgba(0,0,0,0.12);
             transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        /* Alleen op grotere schermen de afbeelding een tikje naar rechts */
+        @media (min-width: 992px) {
+            .feature-slide-img {
+                margin-left: 60px;
+            }
         }
 
         .feature-slide-img:hover {
@@ -438,12 +448,7 @@
             box-shadow: 0 22px 50px rgba(0,0,0,0.16);
         }
 
-        .feature-slide-img {
-            margin-left: 100px; /* waarde aanpassen naar smaak */
-        }
-
-
-        /* --- ARROWS STYLING (oude stijl, mooier & dichterbij) --- */
+        /* --- ARROWS STYLING --- */
         .feature-arrow {
             position: absolute;
             top: 50%;
@@ -472,32 +477,141 @@
             box-shadow: 0 8px 22px rgba(0,0,0,0.18);
         }
 
-        /* --- POSITIONERING (dichter bij afbeelding) --- */
+        /* --- POSITIONERING DESKTOP (naast de foto) --- */
         .feature-arrow-left {
-            left: 30px; /* ← dichterbij */
+            left: 12px;
         }
 
         .feature-arrow-right {
-            right: 550px; /* → dichterbij */
+            right: 12px;
         }
 
-        /* --- MOBILE RESPONSIVE --- */
+        /* -----------------------------
+      FUNCTIE-SLIDER / CAROUSEL
+   ------------------------------*/
+        .feature-carousel-card {
+            border-radius: 26px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* nodig voor absolute arrows */
+            padding: 24px 32px;
+        }
+
+        .feature-slide-img {
+            width: 100%;
+            max-width: 260px;
+            height: auto;
+            border-radius: 22px;
+            margin: 0 auto;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .feature-slide-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 22px 50px rgba(0,0,0,0.16);
+        }
+
+        /* --- ARROWS STYLING --- */
+        .feature-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #4b4b4b;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            transition: .25s ease;
+            z-index: 10;
+        }
+
+        /* Hover effect */
+        .feature-arrow:hover {
+            background: #ffffff;
+            color: var(--wt-green-dark);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+        }
+
+
+        /* --- DESKTOP (>= 992px) --- */
+        @media (min-width: 992px) {
+
+            /* telefoon iets naar rechts voor balans */
+            .feature-slide-img {
+                margin-left: 60px;
+            }
+
+            /* linker pijl dicht bij de telefoon */
+            .feature-arrow-left {
+                left: 0px;
+            }
+
+            /* rechter pijl extra naar links zodat hij net zo dicht bij de telefoon staat */
+            .feature-arrow-right {
+                right: 600px; /* was 12px – nu dichter bij de afbeelding */
+            }
+        }
+
+        /* --- TABLET / SMALLER DESKTOP (< 992px) --- */
+        @media (max-width: 991.98px) {
+
+            .feature-arrow-left {
+                left: 12px;
+            }
+
+            .feature-arrow-right {
+                right: 12px;
+            }
+        }
+
+        /* --- MOBILE RESPONSIVE (<= 768px) --- */
         @media (max-width: 768px) {
+
+            .feature-carousel-card {
+                padding: 20px 16px;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+
+            /* Foto kleiner en gecentreerd */
+            .feature-slide-img {
+                max-width: 150px;       /* 🔥 kleiner + strak in het midden */
+                margin: 0 auto;
+                display: block;
+            }
 
             .feature-arrow {
                 width: 28px;
                 height: 28px;
                 font-size: 18px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.16);
+                top: 32%;               /* iets hoger voor mooiere look */
+                transform: translateY(-50%);
             }
 
+            /* Pijlen naast de afbeelding (afgestemd op 150px breedte) */
             .feature-arrow-left {
-                left: 6px;
+                left: calc(50% - 110px);
             }
 
             .feature-arrow-right {
-                right: 6px;
+                right: calc(50% - 110px);
             }
         }
+
+
 
         /* =========================================
            DOWNLOAD - Minimal Apple Style
