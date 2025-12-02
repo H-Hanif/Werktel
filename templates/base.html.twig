@@ -81,260 +81,316 @@
         .navbar-toggler-icon {
             filter: invert(1);
         }
-
-        /* -----------------------------
-           HERO SECTION
-        ------------------------------*/
+        /* ------------------------------------
+           HERO SECTION – tekst links, 3D logo rechts
+        --------------------------------------*/
         .hero-section {
-            padding: 110px 0 120px;
-            background: radial-gradient(circle at top, #37ff7b 0, #19c700 35%, #049000 70%, #003312 100%);
-            color: #ffffff;
-            text-align: center;
+            padding: 110px 0 140px;
+            background: #f9fff7; /* zacht lichtgroen */
         }
 
-        .hero-inner {
-            max-width: 880px;
-            margin: 0 auto;
-            padding: 42px 32px 54px;
-            border-radius: 32px;
-            background: linear-gradient(
-                    135deg,
-                    rgba(255,255,255,0.18),
-                    rgba(255,255,255,0.05)
-            );
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.18);
-        }
-
-        .hero-logo-wrapper {
-            position: relative;
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 18px auto;
-            border-radius: 32px;
-            background: radial-gradient(circle at top, #46ff8a 0, #20c700 50%, #049000 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 18px 45px rgba(0,0,0,0.45);
-        }
-
-        .hero-logo-polished {
-            width: 80px;
-            height: auto;
-            filter: drop-shadow(0 0 14px rgba(255,255,255,0.7));
-            transition: transform .25s ease-in-out;
-        }
-
-        .hero-logo-polished:hover {
-            transform: scale(1.06);
-        }
-
-        .hero-orb {
-            position: absolute;
-            border-radius: 999px;
-            opacity: 0.75;
-            filter: blur(1px);
-            animation: floatOrb 18s ease-in-out infinite alternate;
-        }
-
-        .hero-orb.orb-1 {
-            width: 70px;
-            height: 70px;
-            background: radial-gradient(circle at 30% 30%, #ffffff 0, #8bffb7 40%, transparent 80%);
-            top: -18px;
-            left: -18px;
-        }
-
-        .hero-orb.orb-2 {
-            width: 90px;
-            height: 90px;
-            background: radial-gradient(circle at 20% 30%, #ffffff 0, #c8ff6a 35%, transparent 85%);
-            bottom: -22px;
-            right: -18px;
-        }
-
-        .hero-orb.orb-3 {
-            width: 60px;
-            height: 60px;
-            background: radial-gradient(circle at 20% 30%, #ffffff 0, #7df0ff 30%, transparent 80%);
-            top: 10px;
-            right: 50%;
-            transform: translateX(50%);
-        }
-
-        @keyframes floatOrb {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(10px, -14px, 0); }
+        /* Tekst links */
+        .hero-eyebrow {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #11a63a;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 10px;
         }
 
         .hero-title {
-            font-size: 2.6rem;
+            font-size: 3rem;
             font-weight: 800;
-            letter-spacing: .02em;
+            line-height: 1.15;
+            color: #002b10;
+            margin-bottom: 18px;
         }
 
         .hero-subtitle {
             font-size: 1.1rem;
-            opacity: .95;
+            color: #355b42;
+            max-width: 540px;
+            margin-bottom: 18px;
         }
 
-        .hero-body {
-            font-size: 0.98rem;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.92;
+        .hero-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
         }
 
-        .hero-tagline {
-            font-size: 0.95rem;
-            opacity: 0.9;
+        .hero-list li {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #2b4f39;
         }
 
-        .hero-button-group {
+        /* Buttons */
+        .hero-buttons {
             display: flex;
-            gap: 18px;
-            justify-content: center;
+            gap: 14px;
             flex-wrap: wrap;
-            margin-top: 6px;
         }
 
-        .hero-btn-primary {
-            background: #ffffff;
-            color: var(--wt-green-dark);
-            padding: 16px 34px;
-            font-size: 1.05rem;
+        .hero-btn-main {
+            background: #12c448;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 40px;
             font-weight: 700;
-            border-radius: 999px;
+            transition: .2s;
             border: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-            transition: .25s ease;
+            box-shadow: 0 12px 28px rgba(5, 120, 35, 0.35);
         }
 
-        .hero-btn-primary:hover {
-            background: #f3fff5;
-            transform: translateY(-3px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+        .hero-btn-main:hover {
+            background: #0ea63a;
+            transform: translateY(-2px);
+            box-shadow: 0 18px 40px rgba(5, 120, 35, 0.45);
         }
 
         .hero-btn-outline {
-            padding: 16px 34px;
-            font-size: 1.05rem;
+            border: 2px solid #12c448;
+            color: #12c448;
+            padding: 14px 28px;
+            border-radius: 40px;
             font-weight: 700;
-            border-radius: 999px;
-            border: 2px solid #ffffff;
-            color: #ffffff;
-            background: transparent;
-            transition: .25s ease;
+            transition: .2s;
+            background: #ffffff;
         }
 
         .hero-btn-outline:hover {
-            background: rgba(255,255,255,0.12);
-            transform: translateY(-3px);
+            background: #eaffef;
+            transform: translateY(-2px);
         }
 
-        @media (max-width: 576px) {
-            .hero-title { font-size: 2.1rem; }
-            .hero-inner { padding: 32px 22px 42px; }
-            .hero-btn-primary,
-            .hero-btn-outline {
-                width: 100%;
-                font-size: 1rem;
-                padding: 14px 20px;
+        /* ------------------------------------
+           VISUAL RECHTS – grote cirkel + 3D kaart
+        --------------------------------------*/
+        .hero-visual-wrapper {
+            position: relative;
+        }
+
+        /* Grote ronde achtergrond (de “muur”) */
+        .hero-bg-circle {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 20% 0,
+            #ffffff 0,
+            #5fff97 35%,
+            #12c448 75%,
+            #0b7a2b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.28); /* sterke schaduw */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Vierkante kaart die uit de cirkel / muur komt */
+        .hero-logo-card {
+            width: 230px;
+            height: 230px;
+            border-radius: 32px;
+            background: linear-gradient(145deg, #18d84a, #09a531);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:
+                    0 28px 50px rgba(0, 0, 0, 0.55),   /* diepe drop shadow */
+                    0 0 0 1px rgba(255,255,255,0.25); /* subtiele rand */
+            transform: translateY(12px);          /* kaart iets naar voren */
+        }
+
+        /* Logo-icon op de kaart */
+        .hero-logo-icon {
+            width: 68%;
+            height: auto;
+            filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
+        }
+
+        /* ------------------------------------
+           EXTRA BLOBS / GLOWS ACHTER DE CIRKEL
+        --------------------------------------*/
+        .hero-visual-wrapper::before {
+            content: "";
+            position: absolute;
+            width: 460px;
+            height: 460px;
+            border-radius: 50%;
+            right: -80px;
+            top: -40px;
+            background: radial-gradient(circle at 30% 20%,
+            #b8ffd3 0,
+            #5cf58e 30%,
+            #12c448 65%,
+            transparent 100%);
+            opacity: 0.55;
+            filter: blur(2px);
+            z-index: 0;
+        }
+
+        .hero-visual-wrapper::after {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 55% 45% 60% 40%;
+            right: 40px;
+            bottom: -40px;
+            background: radial-gradient(circle at 10% 0,
+            #ffffff 0,
+            #8bffc0 35%,
+            #1aa84a 80%);
+            opacity: 0.45;
+            filter: blur(1px);
+            z-index: 0;
+        }
+
+        /* ------------------------------------
+           RESPONSIVE
+        --------------------------------------*/
+        @media (max-width: 991px) {
+            .hero-section {
+                text-align: center;
+                padding: 80px 0 90px;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-bg-circle {
+                margin-top: 40px;
+                width: 320px;
+                height: 320px;
+            }
+
+            .hero-logo-card {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero-visual-wrapper::before,
+            .hero-visual-wrapper::after {
+                opacity: 0.25;
+                right: -40px;
             }
         }
 
-        /* -----------------------------
-           GENERIC SECTIONS
-        ------------------------------*/
-        .section {
-            padding: 70px 0;
+        @media (max-width: 576px) {
+            .hero-section {
+                padding: 80px 0 70px;
+            }
+
+            .hero-title {
+                font-size: 1.9rem;
+            }
+
+            .hero-bg-circle {
+                width: 250px;
+                height: 250px;
+            }
+
+            .hero-logo-card {
+                width: 170px;
+                height: 170px;
+                transform: translateY(8px);
+            }
+
+            /* Op klein scherm: blobs weghalen, alleen de cirkel + kaart tonen */
+            .hero-visual-wrapper::before,
+            .hero-visual-wrapper::after {
+                display: none;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-btn-main,
+            .hero-btn-outline {
+                width: 100%;
+                text-align: center;
+                font-size: 1rem;
+                padding: 13px 18px;
+            }
         }
 
+
+        /* -----------------------------
+   GENERIC SECTIONS TITLES
+------------------------------*/
         .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--wt-green-dark);
-            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #062814;
+            text-align: left;
             margin-bottom: .5rem;
         }
 
         .section-subtitle {
+            color: #546474;
+            max-width: 640px;
+            margin: 0 auto 2rem auto;
             text-align: center;
-            color: #6c757d;
-            margin-bottom: 2rem;
         }
 
         .section-subtitle--compact {
-            margin-top: -6px;
-            margin-bottom: 28px;
+            margin-top: -4px;
+            margin-bottom: 24px;
         }
 
         /* -----------------------------
            FEATURE SECTIONS
-           (Ons bedrijf / Onze diensten)
+           (Over ons / Onze diensten)
+           Rinkel-achtige layout
         ------------------------------*/
+
+        /* Hele band */
         .feature-section {
-            padding: 80px 0;
-            background: #f5f7fb;
+            padding: 90px 0;
+            background: #e7f3ff; /* zacht “Rinkel-blauw” */
         }
 
         .feature-section--alt {
-            background: #ffffff;
+            background: #fffdf8; /* lichte variant voor tweede blok */
         }
 
         .section-header {
-            max-width: 720px;
-            margin: 0 auto 32px auto;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
         }
 
-        .section-header .section-subtitle {
-            margin-bottom: 0;
-        }
-
+        /* Rij: image links – tekst rechts */
         .feature-row {
-            position: relative;
-            max-width: 980px;
-            margin: 0 auto 28px auto;
-            padding: 24px 26px;
-            border-radius: 24px;
-            background: #ffffff;
-            box-shadow: 0 16px 40px rgba(15,23,42,0.08);
+            max-width: 1120px;
+            margin: 0 auto 60px auto;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            overflow: hidden;
-            transition: transform .25s ease, box-shadow .25s ease;
+            gap: 32px;
+            align-items: center;
         }
 
-        .feature-row::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--wt-green), #16a34a);
-            opacity: 0.9;
-        }
-
-        .feature-row:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 22px 55px rgba(15,23,42,0.12);
-        }
-
+        /* Tweede rij omdraaien */
         .feature-row--reverse {
-            flex-direction: column-reverse;
+            flex-direction: column;
         }
 
-        @media (min-width: 768px) {
+        /* Desktop: twee kolommen naast elkaar */
+        @media (min-width: 992px) {
             .feature-row {
-                padding: 26px 34px;
                 flex-direction: row;
-                align-items: center;
+                justify-content: space-between;
+                gap: 64px;
             }
 
             .feature-row--reverse {
@@ -342,41 +398,47 @@
             }
         }
 
+        /* Tekstkolom */
         .feature-text {
-            flex: 1;
+            flex: 1 1 50%;
             min-width: 0;
         }
 
         .feature-eyebrow {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: .08em;
             font-weight: 600;
-            color: var(--wt-green-dark);
-            margin-bottom: 4px;
+            color: #0b7a2b;
+            margin-bottom: 8px;
         }
 
         .feature-title {
-            font-size: 1.55rem;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #062814;
         }
 
         .feature-description {
-            font-size: 0.96rem;
-            color: var(--text-light);
-            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #435366;
+            margin-bottom: 12px;
         }
 
         .feature-text ul {
-            margin-bottom: 8px;
-            padding-left: 18px;
-            color: var(--text-light);
-            font-size: 0.95rem;
+            margin-bottom: 14px;
+            padding-left: 20px;
+            color: #435366;
+            font-size: 0.98rem;
+        }
+
+        .feature-text li {
+            margin-bottom: 4px;
         }
 
         .feature-text a {
-            color: var(--wt-green-dark);
+            color: #0b7a2b;
             font-weight: 600;
             text-decoration: none;
         }
@@ -385,27 +447,80 @@
             text-decoration: underline;
         }
 
+        /* Afbeeldingskolom – grote ronde vorm + device */
         .feature-media {
-            flex: 0 0 auto;
-            text-align: center;
+            flex: 0 0 40%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 0;
         }
 
+
+
+        /* Telefoon / app screenshot zelf */
         .feature-media img {
-            max-width: 240px;
+            position: relative;
+            z-index: 1;
+            max-width: 260px;
             width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-            transition: transform .3s ease, box-shadow .3s ease;
+            border-radius: 36px;
+            box-shadow:
+                    0 26px 60px rgba(15, 23, 42, 0.45),
+                    0 0 0 1px rgba(255,255,255,0.6);
+            background: #ffffff;
+            transition: transform .25s ease, box-shadow .25s ease;
         }
 
+        /* Kleine hover-bounce zoals Rinkel */
         .feature-media img:hover {
-            transform: scale(1.04);
-            box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+            transform: translateY(-4px);
+            box-shadow:
+                    0 34px 70px rgba(15, 23, 42, 0.55),
+                    0 0 0 1px rgba(255,255,255,0.8);
+        }
+
+        /* Mobile tweaks */
+        @media (max-width: 991.98px) {
+            .feature-section {
+                padding: 70px 0;
+            }
+
+            .feature-row {
+                margin-bottom: 40px;
+            }
+
+            .section-title {
+                text-align: center;
+            }
+
+            .feature-media::before {
+                width: 420px;
+                height: 420px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0.7;
+            }
+
+            .feature-media img {
+                max-width: 220px;
+            }
+
+            .feature-text {
+                text-align: center;
+            }
+
+            .feature-text ul {
+                text-align: left;
+                display: inline-block;
+            }
         }
 
         @media (max-width: 575.98px) {
-            .feature-row {
-                padding: 20px 18px;
+            .feature-media::before {
+                width: 340px;
+                height: 340px;
             }
 
             .feature-media img {
@@ -597,7 +712,7 @@
                 height: 28px;
                 font-size: 18px;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.16);
-                top: 32%;               /* iets hoger voor mooiere look */
+                top: 18%;               /* iets hoger voor mooiere look */
                 transform: translateY(-50%);
             }
 
