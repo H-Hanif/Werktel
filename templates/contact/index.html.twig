@@ -1,35 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact – Werk Tel{% endblock %}
+{% block title %}Contact – Werk Telefoon{% endblock %}
 
 {% block body %}
-
     <section class="section">
         <div class="container" style="max-width: 840px;">
+
             <h1 class="section-title">Contact</h1>
             <p class="section-subtitle">
                 Stel je vraag over Werk Telefoon of laat je gegevens achter, dan nemen we zo snel mogelijk contact met je op.
             </p>
 
-            {# Meldingen #}
-            {% for msg in app.flashes('success') %}
-                <div class="alert alert-success">{{ msg }}</div>
-            {% endfor %}
-
-            {% if errors is defined and errors %}
-                <div class="alert alert-danger">
-                    <strong>Controleer de volgende punten:</strong>
-                    <ul class="mb-0">
-                        {% for e in errors %}
-                            <li>{{ e }}</li>
-                        {% endfor %}
-                    </ul>
+            {# Succesmelding wanneer contact.php redirect doet: /contact?success=1 #}
+            {% if app.request.query.get('success') %}
+                <div class="alert alert-success">
+                    🎉 Bedankt! Je bericht is succesvol verzonden. We nemen zo snel mogelijk contact met je op.
                 </div>
             {% endif %}
 
             <div class="wt-card p-4">
-                <form action="{{ path('app_contact') }}" method="post" novalidate>
-                    {# Honeypot veld (onzichtbaar) #}
+
+                <form action="{{ asset('contact.php') }}" method="post" novalidate>
+
+                    {# Honeypot veld tegen spam bots #}
                     <div style="display:none;">
                         <label>Laat dit veld leeg</label>
                         <input type="text" name="_honey" value="">
@@ -37,39 +30,34 @@
 
                     <div class="mb-3">
                         <label class="form-label">Naam *</label>
-                        <input type="text" name="Naam" class="form-control"
-                               value="{{ formData.naam ?? '' }}" required>
+                        <input type="text" name="Naam" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Bedrijf</label>
-                        <input type="text" name="Bedrijf" class="form-control"
-                               value="{{ formData.bedrijf ?? '' }}">
+                        <input type="text" name="Bedrijf" class="form-control">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">E-mailadres *</label>
-                        <input type="email" name="email" class="form-control"
-                               value="{{ formData.email ?? '' }}" required>
+                        <input type="email" name="email" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Telefoonnummer</label>
-                        <input type="text" name="Telefoonnummer" class="form-control"
-                               value="{{ formData.telefoon ?? '' }}">
+                        <input type="text" name="Telefoonnummer" class="form-control">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Bericht *</label>
-                        <textarea name="Bericht" rows="5" class="form-control" required>{{ formData.bericht ?? '' }}</textarea>
+                        <textarea name="Bericht" rows="5" class="form-control" required></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-wt-primary">
-                        Verstuur bericht
+                    <button type="submit" class="btn btn-wt-primary w-100 py-3">
+                        📩 Verstuur bericht
                     </button>
                 </form>
             </div>
         </div>
     </section>
-
 {% endblock %}

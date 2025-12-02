@@ -11,12 +11,12 @@ use Symfony\Component\Mime\Email;
 
 final class ContactController extends AbstractController
 {
-    // 👉 PAS DIT AAN NAAR JE EIGEN GEGEVENS
-    private string $toAdmin   = 'yaser@easysolutions.nl'; // waar jij het bericht wilt ontvangen
-    private string $fromEmail = 'info@zakelijkopjemobiel.nl'; // afzender (mailbox op je server)
-    private string $fromName  = 'Zakelijk op je Mobiel';
-    private string $siteUrl   = 'https://zakelijkopjemobiel.nl';
-    private string $logoUrl   = 'https://zakelijkopjemobiel.nl/assets/zakelijkopjemobiel-high-resolution-logo-transparent.png';
+    // ✅ Aangepast naar Werk Tel
+    private string $toAdmin   = 'yaser@easysolutions.nl';         // waar jij het bericht wilt ontvangen
+    private string $fromEmail = 'info@werktel.nl';                // afzender (mailbox op je server / Strato)
+    private string $fromName  = 'Werk Tel';
+    private string $siteUrl   = 'https://werktel.nl';
+    private string $logoUrl   = 'https://werktel.nl/logo.png';
 
     #[Route('/contact', name: 'app_contact', methods: ['GET', 'POST'])]
     public function index(Request $request, MailerInterface $mailer): Response
@@ -31,21 +31,20 @@ final class ContactController extends AbstractController
         $errors = [];
 
         if ($request->isMethod('POST')) {
-            // honeypot
+            // Honeypot tegen bots
             if ($request->request->get('_honey')) {
-                // bot: doe alsof het goed ging
                 $this->addFlash('success', 'Dank je wel, je bericht is ontvangen.');
                 return $this->redirectToRoute('app_contact');
             }
 
-            // data uit formulier
+            // Data uit formulier
             $formData['naam']     = $this->clean($request->request->get('Naam', ''));
             $formData['bedrijf']  = $this->clean($request->request->get('Bedrijf', ''));
             $formData['email']    = $this->clean($request->request->get('email', ''));
             $formData['telefoon'] = $this->clean($request->request->get('Telefoonnummer', ''));
             $formData['bericht']  = $this->clean($request->request->get('Bericht', ''));
 
-            // validatie
+            // Validatie
             if ($formData['naam'] === '') {
                 $errors[] = 'Naam ontbreekt';
             }
@@ -57,7 +56,7 @@ final class ContactController extends AbstractController
             }
 
             if (!$errors) {
-                // tabel HTML
+                // Tabel met velden in HTML
                 $fieldsHtml = '
 <table class="table">
   <tr><th>Naam</th><td>' . nl2br($formData['naam']) . '</td></tr>
@@ -67,11 +66,11 @@ final class ContactController extends AbstractController
   <tr><th>Bericht</th><td>' . nl2br($formData['bericht']) . '</td></tr>
 </table>';
 
-                // e-mail naar admin
+                // Mail naar admin
                 $subjectAdmin = "📩 Nieuw contactbericht – {$formData['naam']}" .
                     ($formData['bedrijf'] ? " ({$formData['bedrijf']})" : "");
-                $introAdmin  = "Er is een nieuw bericht verstuurd via het contactformulier. Details staan hieronder.";
-                $footerAdmin = "Reageer gerust via 'Beantwoorden' (Reply-To staat op de inzender).";
+                $introAdmin  = "Er is een nieuw bericht verstuurd via het contactformulier op de website. Hieronder staan de details.";
+                $footerAdmin = "Je kunt direct reageren via 'Beantwoorden' – de afzender staat als Reply-To ingesteld.";
 
                 $htmlAdmin = $this->emailTemplate(
                     $this->logoUrl,
@@ -89,10 +88,10 @@ final class ContactController extends AbstractController
                     ->subject($subjectAdmin)
                     ->html($htmlAdmin);
 
-                // bevestiging naar gebruiker
+                // Bevestiging naar gebruiker
                 $subjectUser = "Bevestiging: we hebben je bericht ontvangen";
-                $introUser   = "Bedankt voor je bericht aan Zakelijk op je Mobiel! We reageren doorgaans binnen 1 werkdag. Hieronder vind je een kopie van je bericht.";
-                $footerUser  = "Vragen of aanvullen? Antwoord gerust op deze e-mail.";
+                $introUser   = "Bedankt voor je bericht aan Werk Tel! We reageren doorgaans binnen 1 werkdag. Hieronder vind je een kopie van je bericht.";
+                $footerUser  = "Heb je nog een aanvulling of vraag? Antwoord gerust op deze e-mail.";
 
                 $htmlUser = $this->emailTemplate(
                     $this->logoUrl,
@@ -181,8 +180,8 @@ final class ContactController extends AbstractController
   <div class="wrapper"><div class="container">
     <div class="header">
       <a href="{$siteUrl}" target="_blank" style="text-decoration:none">
-        <img class="logo" src="{$logoUrl}" alt="Zakelijkopjemobiel logo">
-        <div class="brand">Zakelijkopjemobiel.nl</div>
+        <img class="logo" src="{$logoUrl}" alt="Werk Tel logo">
+        <div class="brand">Werk Tel</div>
       </a>
     </div>
     <div class="content">
@@ -191,7 +190,7 @@ final class ContactController extends AbstractController
       <div class="card" style="margin:16px 0;">{$fieldsHtml}</div>
       <p style="font-size:12px;color:#6b7280;">{$footerNote}</p>
     </div>
-    <div class="footer">© {$year} Zakelijk op je Mobiel · <a href="{$siteUrl}">{$siteUrl}</a></div>
+    <div class="footer">© {$year} Werk Tel · <a href="{$siteUrl}">{$siteUrl}</a></div>
   </div></div>
 </body>
 </html>
