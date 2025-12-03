@@ -604,6 +604,25 @@
         /* -----------------------------
       FUNCTIE-SLIDER / CAROUSEL
    ------------------------------*/
+
+        .features-header-section {
+            padding-top: 7rem;     /* ruimte onder de navbar */
+            padding-bottom: 3rem;
+        }
+
+        .features-header-section .section-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #111827; /* donkere mooie tekstkleur */
+        }
+
+        .features-header-section .section-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280; /* zachte grijstint */
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
         .feature-carousel-card {
             border-radius: 26px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.08);
@@ -898,16 +917,31 @@
 
         .contact-section {
             background: #f5f7fb;
+            padding-top: 7rem;   /* ruimte voor fixed navbar */
+            padding-bottom: 4rem;
         }
 
-        .contact-info-card {
-            border-radius: 20px;
-            background: #ffffff;
+        .btn-wt-primary {
+            background-color: #1fbf82 !important; /* jouw gewenste kleur */
+            color: #ffffff !important;
+            border: none !important;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: 0.2s;
         }
 
+        .btn-wt-primary:hover {
+            background-color: #17a36d !important;
+            color: #ffffff !important;
+            transform: translateY(-1px);
+        }
+
+
+        .contact-info-card,
         .contact-form-card {
             border-radius: 20px;
             background: #ffffff;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
         }
 
         .contact-link {
@@ -921,6 +955,10 @@
         }
 
         @media (max-width: 767.98px) {
+            .contact-section {
+                padding-top: 6rem;  /* iets minder op mobiel */
+            }
+
             .contact-section .section-header {
                 margin-bottom: 1.5rem;
             }

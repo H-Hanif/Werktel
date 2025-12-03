@@ -2,6 +2,11 @@
 
 {% block title %}Contact – Werk Telefoon{% endblock %}
 
+{# Extra CSS alleen voor deze pagina #}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
     <section class="section contact-section">
         <div class="container" style="max-width: 980px;">
@@ -14,7 +19,7 @@
                 </p>
             </div>
 
-            {# Succesmelding vanuit contact.php: /contact?success=1 #}
+            {# Succesmelding: /contact?success=1 #}
             {% if app.request.query.get('success') %}
                 <div class="alert alert-success mb-4">
                     🎉 <strong>Bedankt!</strong> Je bericht is succesvol verzonden.
@@ -34,7 +39,7 @@
                         <ul class="list-unstyled mb-4 text-muted small">
                             <li>• Implementatie van Werk Telefoon binnen je organisatie</li>
                             <li>• Integratie met je huidige telefoniesysteem of VoIP-platform</li>
-                            <li>• Partner- of reseller­mogelijkheden</li>
+                            <li>• Partner- of resellermogelijkheden</li>
                             <li>• Algemene vragen over functies, prijzen of ondersteuning</li>
                         </ul>
 
@@ -99,6 +104,7 @@
                             <button type="submit" class="btn btn-wt-primary w-100 mt-4 py-3">
                                 📩 Verstuur bericht
                             </button>
+
                         </form>
                     </div>
                 </div>
