@@ -26,11 +26,16 @@
                         <div class="carousel-item active">
                             <div class="row align-items-center g-4">
 
+                                <!-- LEFT: image + arrows -->
                                 <div class="col-md-6 feature-slide-wrapper">
                                     <button class="feature-arrow feature-arrow-left"
                                             type="button"
                                             data-bs-target="#featureCarousel"
                                             data-bs-slide="prev">‹</button>
+
+                                    <img src="{{ asset('img/begin.webp') }}"
+                                         class="feature-slide-img"
+                                         alt="Werk Telefoon integratie voor VoIP-partners">
 
                                     <button class="feature-arrow feature-arrow-right"
                                             type="button"
@@ -38,45 +43,41 @@
                                             data-bs-slide="next">›</button>
                                 </div>
 
-                                <div class="feature-row">
-                                    <div class="feature-media">
-                                        <img src="{{ asset('img/begin.webp') }}"
-                                             alt="Werk Telefoon integratie voor VoIP-partners">
-                                    </div>
+                                <!-- RIGHT: text -->
+                                <div class="col-md-6">
+                                    <span class="feature-eyebrow">🤝 Voor telecom- & IT-partners</span>
+                                    <h3 class="feature-title">Koppel jouw VoIP-platform direct aan Werk Telefoon</h3>
 
-                                    <div class="feature-text">
-                                        <span class="feature-eyebrow">🤝 Voor telecom- & IT-partners</span>
-                                        <h3 class="feature-title">Koppel jouw VoIP-platform direct aan Werk Telefoon</h3>
+                                    <p class="feature-description">
+                                        Werk Telefoon is meer dan een app: het is een flexibel platform dat zich moeiteloos laat
+                                        integreren met bestaande VoIP-, Hosted PBX- en SIP-oplossingen. Partners kunnen hun
+                                        telefoniediensten direct binnen onze app aanbieden — zonder eigen app-ontwikkeling,
+                                        onderhoud of extra supportlast.
+                                    </p>
 
-                                        <p class="feature-description">
-                                            Werk Telefoon is meer dan een app: het is een flexibel platform dat zich moeiteloos laat
-                                            integreren met bestaande VoIP-, Hosted PBX- en SIP-oplossingen. Partners kunnen hun
-                                            telefoniediensten direct binnen onze app aanbieden — zonder eigen app-ontwikkeling,
-                                            onderhoud of extra supportlast.
-                                        </p>
+                                    <p class="feature-description">
+                                        Daarmee maak je jouw zakelijke telefonie volledig mobiel, ideaal voor klanten die hoge
+                                        eisen stellen aan bereikbaarheid, flexibiliteit en professionele communicatie.
+                                    </p>
 
-                                        <p class="feature-description">
-                                            Daarmee maak je jouw zakelijke telefonie volledig mobiel, ideaal voor klanten die hoge
-                                            eisen stellen aan bereikbaarheid, flexibiliteit en professionele communicatie.
-                                        </p>
+                                    <ul>
+                                        <li>🔗 Naadloze koppeling met Hosted PBX, SIP-platformen en provisioning-systemen</li>
+                                        <li>💶 Duidelijk partner-model: per gebruiker, zonder verborgen kosten</li>
+                                        <li>📌 Beschikbaar met partnerbranding of volledige white-label variant</li>
+                                        <li>📱 Eén moderne app voor iOS en Android — stabiel, snel en gebruiksvriendelijk</li>
+                                        <li>🛠️ Wij beheren updates, beveiliging, support en verdere technische ontwikkeling</li>
+                                    </ul>
 
-                                        <ul>
-                                            <li>🔗 Naadloze koppeling met Hosted PBX, SIP-platformen en provisioning-systemen</li>
-                                            <li>💶 Duidelijk partner-model: per gebruiker, zonder verborgen kosten</li>
-                                            <li>📌 Beschikbaar met partnerbranding of volledige white-label variant</li>
-                                            <li>📱 Eén moderne app voor iOS en Android — stabiel, snel en gebruiksvriendelijk</li>
-                                            <li>🛠️ Wij beheren updates, beveiliging, support en verdere technische ontwikkeling</li>
-                                        </ul>
-
-                                        <p class="feature-description mb-0">
-                                            Interesse in whitelabeling, reseller-modellen of integratie met jouw SIP-omgeving?
-                                            Vraag een demo of partnerpakket aan:
-                                            👉 <a href="{{ path('app_contact') }}">Partner worden</a>.
-                                        </p>
-                                    </div>
+                                    <p class="feature-description mb-0">
+                                        Interesse in whitelabeling, reseller-modellen of integratie met jouw SIP-omgeving?
+                                        Vraag een demo of partnerpakket aan:
+                                        👉 <a href="{{ path('app_contact') }}">Partner worden</a>.
+                                    </p>
                                 </div>
+
                             </div>
                         </div>
+
 
                         {# SLIDE 2 – taalbegin.webp #}
                         <div class="carousel-item">
@@ -167,7 +168,9 @@
 
                                     <img src="{{ asset('img/dnd.webp') }}"
                                          class="feature-slide-img"
-                                         alt="Niet storen en beschikbaarheid in Werk Telefoon">
+                                         alt="Niet storen en beschikbaarheid in Werk Telefoon"
+                                         style="width:100%; max-width:250px; height:auto;">
+
 
                                     <button class="feature-arrow feature-arrow-right"
                                             type="button"
