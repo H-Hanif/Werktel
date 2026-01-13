@@ -1,218 +1,179 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Werk Telefoon – Blijf verbonden, waar je ook werkt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% block title %}Werk Telefoon – Blijf verbonden, waar je ook werkt{% endblock %}
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-{% block body %}
+<!-- ================= HERO ================= -->
+<section id="home" class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
 
-    {# HOME / HERO – tekst links, 3D logo rechts #}
-    <section id="home" class="hero-section">
-        <div class="container">
+            <!-- LINKS: tekst -->
+            <div class="col-lg-6">
+                <p class="hero-eyebrow">Zakelijke telefonie via één app</p>
 
-            <div class="row align-items-center">
+                <h1 class="hero-title">
+                    Jouw bereikbaarheid,<br>onze prioriteit.
+                </h1>
 
-                {# LINKS: tekst #}
-                <div class="col-lg-6">
-                    <p class="hero-eyebrow">Zakelijke telefonie via één app</p>
+                <p class="hero-subtitle">
+                    Werk Telefoon maakt zakelijke communicatie eenvoudig en professioneel.
+                    Gebruik je zakelijke nummer op mobiel, laptop of vaste lijn — zonder je privé-nummer te delen.
+                </p>
 
-                    <h1 class="hero-title">
-                        Jouw bereikbaarheid,<br>onze prioriteit.
-                    </h1>
+                <ul class="hero-list">
+                    <li>✔ Eén account, meerdere toestellen</li>
+                    <li>✔ Professionele uitstraling met slimme functies</li>
+                    <li>✔ Voeg eenvoudig collega’s of extra nummers toe</li>
+                </ul>
 
-                    <p class="hero-subtitle">
-                        Werk Telefoon maakt zakelijke communicatie eenvoudig en professioneel.
-                        Gebruik je zakelijke nummer op mobiel, laptop of vaste lijn — zonder je privé-nummer te delen.
-                    </p>
+                <div class="hero-buttons">
+                    <a href="functies.html" class="btn hero-btn-main">
+                        Bekijk functies
+                    </a>
 
-                    <ul class="hero-list">
-                        <li>✔ Eén account, meerdere toestellen</li>
-                        <li>✔ Professionele uitstraling met slimme functies</li>
-                        <li>✔ Voeg eenvoudig collega’s of extra nummers toe</li>
-                    </ul>
+                    <a href="#ons-bedrijf" class="btn hero-btn-outline">
+                        🤝 Partner worden
+                    </a>
+                </div>
+            </div>
 
-                    <div class="hero-buttons">
-                        <a href="{{ path('app_function') }}"
-                           class="btn hero-btn-main {{ app.request.get('_route') == 'app_function' ? 'active' : '' }}">
-                            Bekijk functies
-                        </a>
-
-                        <a href="#ons-bedrijf" class="btn hero-btn-outline">
-                            🤝 Partner worden
-                        </a>
+            <!-- RECHTS: logo -->
+            <div class="col-lg-6 d-flex justify-content-center hero-visual-wrapper">
+                <div class="hero-bg-circle">
+                    <div class="hero-logo-card">
+                        <img src="img/werktell.webp" alt="Werk Telefoon logo" class="hero-logo-icon">
                     </div>
                 </div>
-
-                {# RECHTS: grote cirkel + 3D kaart #}
-                <div class="col-lg-6 d-flex justify-content-center hero-visual-wrapper">
-                    <div class="hero-bg-circle">
-                        <div class="hero-logo-card">
-                            <img src="{{ asset('img/werktell.webp') }}"
-                                 alt="Werk Telefoon logo"
-                                 class="hero-logo-icon">
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
         </div>
-    </section>
+    </div>
+</section>
 
+<!-- ================= OVER ONS ================= -->
+<section id="ons-bedrijf" class="feature-section">
+    <div class="container">
 
+        <div class="section-header text-center mb-4">
+            <h2 class="section-title">Over Ons</h2>
+            <p class="section-subtitle">
+                Werk Telefoon is gemaakt voor professionals én partners die zakelijke telefonie
+                modern en flexibel willen aanbieden.
+            </p>
+        </div>
 
-    {# ONS BEDRIJF #}
-    <section id="ons-bedrijf" class="feature-section">
-        <div class="container">
+        <!-- Rij 1 -->
+        <div class="feature-row">
+            <div class="feature-media">
+                <img src="img/begin.webp" alt="Werk Telefoon VoIP integratie">
+            </div>
 
-            <div class="section-header text-center mb-4">
-                <h2 class="section-title">Over Ons</h2>
-                <p class="section-subtitle">
-                    Werk Telefoon is gemaakt voor professionals én partners die zakelijke telefonie
-                    modern en flexibel willen aanbieden.
+            <div class="feature-text">
+                <span class="feature-eyebrow">🤝 Voor telecom- & IT-partners</span>
+                <h3 class="feature-title">Koppel jouw VoIP-platform direct aan de Werk Telefoon app</h3>
+
+                <p class="feature-description">
+                    Werk Telefoon is meer dan een app: het is een volledig geïntegreerd communicatieplatform.
+                    Providers en IT-partners kunnen hun bestaande VoIP-diensten direct beschikbaar maken in onze app.
+                </p>
+
+                <ul>
+                    <li>🔗 Integratie met Hosted PBX, SIP- en VoIP-platformen</li>
+                    <li>💶 Transparante prijzen per gebruiker</li>
+                    <li>📌 Partnerbranding & white-label mogelijk</li>
+                    <li>📱 iOS & Android app</li>
+                    <li>🛠️ Wij regelen updates, beveiliging en support</li>
+                </ul>
+
+                <p class="feature-description mb-0">
+                    👉 <a href="contact.html">Neem contact op en word partner.</a>
                 </p>
             </div>
-
-            {# Rij 1 – Partner / VoIP platform #}
-            <div class="feature-row">
-                <div class="feature-media">
-                    <img src="{{ asset('img/begin.webp') }}"
-                         alt="Werk Telefoon VoIP integratie met partnersystemen">
-                </div>
-
-                <div class="feature-text">
-                    <span class="feature-eyebrow">🤝 Voor telecom- & IT-partners</span>
-                    <h3 class="feature-title">Koppel jouw VoIP-platform direct aan de Werk Telefoon app</h3>
-
-                    <p class="feature-description">
-                        Werk Telefoon is meer dan een app: het is een volledig geïntegreerd communicatieplatform.
-                        Providers, hosted PBX-leveranciers en IT-partners kunnen hun bestaande VoIP-diensten
-                        direct beschikbaar maken in onze mobiele app – zonder eigen ontwikkeling of onderhoud.
-                    </p>
-
-                    <p class="feature-description">
-                        Zo bied je klanten een moderne, mobiele zakelijke oplossing die past bij organisaties
-                        die flexibiliteit, bereikbaarheid en professionaliteit belangrijk vinden.
-                    </p>
-
-                    <ul>
-                        <li>🔗 Integratie met Hosted PBX, SIP- en VoIP-platformen</li>
-                        <li>💶 Transparante prijzen per gebruiker, zonder verrassingen</li>
-                        <li>📌 Mogelijkheid tot partnerbranding of volledige white-label versie</li>
-                        <li>📱 Eén krachtige app voor iOS en Android</li>
-                        <li>🛠️ Wij regelen updates, beveiliging, support en technische roadmap</li>
-                    </ul>
-
-                    <p class="feature-description mb-0">
-                        Meer informatie over reseller-partnerships, white-labeling of integratie?
-                        👉 <a href="{{ path('app_contact') }}">Neem contact op en word partner.</a>
-                    </p>
-                </div>
-            </div>
-
-
-
-            {# Rij 2 – Onze eigen visie #}
-            <div class="feature-row feature-row--reverse">
-                <div class="feature-media">
-                    <img src="{{ asset('img/home.webp') }}"
-                         alt="Werk Telefoon beschikbaar in app stores">
-                </div>
-
-                <div class="feature-text">
-                    <span class="feature-eyebrow">🚀 Onze visie</span>
-                    <h3 class="feature-title">Eenvoud, technologie en zakelijke kracht — samen in één app</h3>
-
-                    <p class="feature-description">
-                        Communicatie is al lang niet meer gebonden aan een vaste werkplek. Daarom vinden wij dat elke professional —
-                        van ZZP’er tot grote organisatie — toegang moet hebben tot betrouwbare en schaalbare zakelijke telefonie.
-                        Werk Telefoon biedt precies dat: een moderne, veilige en flexibele manier om bereikbaar te blijven.
-                    </p>
-
-                    <p class="feature-description">
-                        Onze filosofie is simpel: technologie hoort jou te helpen, niet te vertragen. Daarom is Werk Telefoon gebouwd
-                        met een overzichtelijke structuur, logische indeling en een interface die direct vertrouwd aanvoelt.
-                        Geen ingewikkelde instellingen of technische obstakels — gewoon één app die doet wat nodig is.
-                    </p>
-
-                    <p class="feature-description">
-                        We blijven de app continu verbeteren met updates, optimalisaties en nieuwe functies.
-                        Door actief te luisteren naar gebruikers en partners bouwen we een platform dat écht waarde toevoegt
-                        in dagelijkse workflows.
-                    </p>
-
-                    <p class="feature-description">
-                        Of je nu remote werkt, meerdere vestigingen beheert of je professionele uitstraling wilt versterken —
-                        Werk Telefoon groeit met je mee. Flexibel, slim en klaar voor de toekomst.
-                    </p>
-
-                    <p class="feature-description mb-0">
-                        Ons doel is helder: <strong>professionele communicatie toegankelijk maken voor iedereen</strong> —
-                        zonder dure hardware of complex beheer. Met Werk Telefoon ben je niet alleen bereikbaar,
-                        maar werk je slimmer, overzichtelijker en professioneler.
-                    </p>
-                </div>
-            </div>
-
         </div>
-    </section>
 
-    {# WERK TEL APP / ONZE DIENSTEN #}
-    <section id="werktel-app" class="feature-section feature-section--alt">
-        <div class="container">
+        <!-- Rij 2 -->
+        <div class="feature-row feature-row--reverse">
+            <div class="feature-media">
+                <img src="img/home.webp" alt="Werk Telefoon app">
+            </div>
 
-            <div class="section-header text-center mb-4">
-                <h2 class="section-title">Onze diensten – Werk Telefoon app</h2>
-                <p class="section-subtitle section-subtitle--compact">
-                    Met Werk Tel heb je de kracht van een volwaardige zakelijke softphone in handen.
-                    Eén app voor bellen, doorschakelen, voicemail en bereikbaarheid – waar je ook werkt.
+            <div class="feature-text">
+                <span class="feature-eyebrow">🚀 Onze visie</span>
+                <h3 class="feature-title">Eenvoud, technologie en zakelijke kracht — samen in één app</h3>
+
+                <p class="feature-description">
+                    Communicatie is al lang niet meer gebonden aan een vaste werkplek. Werk Telefoon biedt
+                    een moderne, veilige en flexibele manier om bereikbaar te blijven.
+                </p>
+
+                <p class="feature-description">
+                    Geen ingewikkelde instellingen of technische obstakels — gewoon één app die doet wat nodig is.
+                </p>
+
+                <p class="feature-description mb-0">
+                    Met Werk Telefoon werk je slimmer, overzichtelijker en professioneler.
                 </p>
             </div>
-
-            {# Rij 1 – Zakelijke softphone #}
-            <div class="feature-row">
-                <div class="feature-media">
-                    <img src="{{ asset('img/werktellai.webp') }}"
-                         alt="Werk Telefoon softphone op smartphone">
-                </div>
-
-                <div class="feature-text">
-                    <span class="feature-eyebrow">Zakelijke softphone</span>
-                    <h3 class="feature-title">Altijd en overal bereikbaar</h3>
-                    <p class="feature-description">
-                        Gebruik je zakelijke nummer gewoon op je smartphone. Inkomende en uitgaande
-                        gesprekken lopen via je zakelijke lijn, terwijl je privénummer privé blijft.
-                    </p>
-                    <ul>
-                        <li>Zakelijke nummerweergave – professioneel naar buiten</li>
-                        <li>Werkt via WiFi, 4G en 5G</li>
-                        <li>Duidelijke scheiding tussen werk en privé</li>
-                    </ul>
-                </div>
-            </div>
-
-            {# Rij 2 – Pro functionaliteiten #}
-            <div class="feature-row feature-row--reverse">
-                <div class="feature-media">
-                    <img src="{{ asset('img/picture-200.webp') }}"
-                         alt="Werk Telefoon op meerdere apparaten">
-                </div>
-
-                <div class="feature-text">
-                    <span class="feature-eyebrow">Pro functionaliteiten</span>
-                    <h3 class="feature-title">Alle functies, geen verborgen kosten</h3>
-                    <p class="feature-description">
-                        Waar anderen extra rekenen voor ‘pro’ functies, leveren wij ze standaard mee.
-                        Zo weet je precies waar je aan toe bent.
-                    </p>
-                    <ul>
-                        <li>Doorschakelen, voicemail en conference calls</li>
-                        <li>Beschikbaar voor zowel Android als iOS</li>
-                        <li>Stabiele prestaties en een intuïtieve interface</li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
-    </section>
 
+    </div>
+</section>
 
-{% endblock %}
+<!-- ================= DIENSTEN ================= -->
+<section id="werktel-app" class="feature-section feature-section--alt">
+    <div class="container">
+
+        <div class="section-header text-center mb-4">
+            <h2 class="section-title">Onze diensten – Werk Telefoon app</h2>
+            <p class="section-subtitle section-subtitle--compact">
+                Eén app voor bellen, doorschakelen, voicemail en bereikbaarheid – waar je ook werkt.
+            </p>
+        </div>
+
+        <!-- Rij 1 -->
+        <div class="feature-row">
+            <div class="feature-media">
+                <img src="img/werktellai.webp" alt="Werk Telefoon softphone">
+            </div>
+
+            <div class="feature-text">
+                <span class="feature-eyebrow">Zakelijke softphone</span>
+                <h3 class="feature-title">Altijd en overal bereikbaar</h3>
+                <ul>
+                    <li>Zakelijke nummerweergave</li>
+                    <li>Werkt via WiFi, 4G en 5G</li>
+                    <li>Werk & privé gescheiden</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Rij 2 -->
+        <div class="feature-row feature-row--reverse">
+            <div class="feature-media">
+                <img src="img/picture-200.webp" alt="Werk Telefoon op meerdere apparaten">
+            </div>
+
+            <div class="feature-text">
+                <span class="feature-eyebrow">Pro functionaliteiten</span>
+                <h3 class="feature-title">Alle functies, geen verborgen kosten</h3>
+                <ul>
+                    <li>Doorschakelen, voicemail, conference calls</li>
+                    <li>Android & iOS</li>
+                    <li>Stabiele prestaties</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
