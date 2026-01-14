@@ -86,7 +86,8 @@
         --------------------------------------*/
         .hero-section {
             padding: 110px 0 140px;
-            background: #f9fff7; /* zacht lichtgroen */
+            background: #dcebd6;
+
         }
 
         /* Tekst links */
@@ -358,7 +359,8 @@
         /* Hele band */
         .feature-section {
             padding: 90px 0;
-            background: #e7f3ff; /* zacht “Rinkel-blauw” */
+            background: #dcebd6;
+
         }
 
         .feature-section--alt {
@@ -999,14 +1001,14 @@
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ app.request.get('_route') == 'app_home' ? '#home' : path('app_home') ~ '#home' }}">
-                        🏠 Home
+                         Home
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link"
                        href="{{ app.request.get('_route') == 'app_home' ? '#ons-bedrijf' : path('app_home') ~ '#ons-bedrijf' }}">
-                        🧩 Over ons
+                         Over ons
                     </a>
                 </li>
 
@@ -1014,20 +1016,26 @@
                 <li class="nav-item">
                     <a class="nav-link {{ app.request.get('_route') == 'app_function' ? 'active' : '' }}"
                        href="{{ path('app_function') }}">
-                        📱 App Demo & Functies
+                         App
                     </a>
                 </li>
 
                 {# 🆕 Link naar downloadpagina #}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_app') }}">
-                        ⬇️ Download App
+                         Download
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_app') }}">
+                        Partner Worden
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_contact') }}">
-                        ✉️ Contact
+                         Contact
                     </a>
                 </li>
             </ul>
@@ -1048,9 +1056,9 @@
         </div>
 
         <div class="footer-links">
-            <a href="{{ path('app_contact') }}">📞 Contact</a>
-            <a href="{{ path('app_privacy') }}">🔒 Privacybeleid</a>
-            <a href="{{ path('app_algmeen_voorwaarden') }}">📄 Algemene voorwaarden</a>
+            <a href="{{ path('app_contact') }}">Contact</a>
+            <a href="{{ path('app_privacy') }}"> Privacybeleid</a>
+            <a href="{{ path('app_algmeen_voorwaarden') }}"> Algemene voorwaarden</a>
         </div>
 
         <hr class="footer-divider">
