@@ -1,0 +1,183 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Partner worden – Werk Telefoon{% endblock %}
+
+{% block body %}
+
+    {# HERO / INTRO #}
+    <section class="hero-section" style="padding-bottom: 80px;">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6">
+                    <p class="hero-eyebrow"> Voor telecom- & IT-partners</p>
+
+                    <h1 class="hero-title">
+                        Word partner van<br>Werk Telefoon
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Bied jouw klanten een professionele zakelijke softphone aan zonder eigen app-ontwikkeling.
+                        Wij leveren de app, updates en technische doorontwikkeling — jij levert de klantrelatie.
+                    </p>
+
+                    <ul class="hero-list">
+                        <li>✔ Koppeling met Hosted PBX / SIP / VoIP</li>
+                        <li>✔ Partnerbranding of white-label mogelijk</li>
+                        <li>✔ Snelle onboarding + support inbegrepen</li>
+                    </ul>
+
+                    <div class="hero-buttons">
+                        <a href="{{ path('app_contact') }}" class="btn hero-btn-main">
+                            Vraag partnerpakket aan
+                        </a>
+                        <a href="#partner-voordelen" class="btn hero-btn-outline">
+                            Bekijk voordelen
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 d-flex justify-content-center hero-visual-wrapper">
+                    <div class="hero-bg-circle">
+                        <div class="feature-media">
+                            <img src="{{ asset('img/picture-200.webp') }}">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    {# VOORDELEN #}
+    <section id="partner-voordelen" class="feature-section feature-section--alt">
+        <div class="container">
+
+            <div class="section-header text-center mb-4">
+                <h2 class="section-title">Waarom partner worden?</h2>
+                <p class="section-subtitle section-subtitle--compact">
+                    Groei je telefoniediensten door met een stabiele app-oplossing die je direct kunt aanbieden
+                    aan je klanten — zonder extra ontwikkelkosten.
+                </p>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-media">
+                    <img src="{{ asset('img/begin.webp') }}"
+                         alt="Werk Telefoon integratie voor partners">
+                </div>
+
+                <div class="feature-text">
+                    <span class="feature-eyebrow"> Sneller leveren</span>
+                    <h3 class="feature-title">Jij verkoopt, wij bouwen & onderhouden</h3>
+                    <p class="feature-description">
+                        Geen eigen app-team nodig. Jij kunt direct een complete softphone aanbieden aan je klanten,
+                        inclusief updates, beveiliging en nieuwe features.
+                    </p>
+                    <ul>
+                        <li>Updates & doorontwikkeling inbegrepen</li>
+                        <li>Stabiele iOS & Android app</li>
+                        <li>Geen extra supportlast door app-issues</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-row feature-row--reverse">
+                <div class="feature-media">
+                    <img src="{{ asset('img/picture-200.webp') }}"
+                         alt="Werk Telefoon op meerdere apparaten">
+                </div>
+
+                <div class="feature-text">
+                    <span class="feature-eyebrow">📱 Multi-device bereikbaarheid</span>
+                    <h3 class="feature-title">Zakelijk bellen op mobiel, tablet en meer</h3>
+                    <p class="feature-description">
+                        Klanten verwachten flexibiliteit. Werk Telefoon ondersteunt moderne werkvormen:
+                        kantoor, thuis, onderweg — altijd hetzelfde zakelijke nummer.
+                    </p>
+                    <ul>
+                        <li>Werk & privé gescheiden</li>
+                        <li>Geschikt voor teams en organisaties</li>
+                        <li>Professionele uitstraling voor iedere gebruiker</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-media">
+                    <img src="{{ asset('img/home.webp') }}"
+                         alt="Werk Telefoon interface">
+                </div>
+
+                <div class="feature-text">
+                    <span class="feature-eyebrow"> Partner modellen</span>
+                    <h3 class="feature-title">Partnerbranding of white-label</h3>
+                    <p class="feature-description">
+                        Je kunt Werk Telefoon aanbieden onder jouw merk (partnerbranding) of als complete white-label oplossing.
+                        Ideaal voor telecomproviders, VoIP-resellers en IT-partners.
+                    </p>
+                    <ul>
+                        <li>Partnerbranding: “powered by Werk Telefoon”</li>
+                        <li>White-label: jouw look & feel</li>
+                        <li>Heldere prijsstructuur per gebruiker</li>
+                    </ul>
+
+                    <div class="hero-buttons" style="margin-top: 18px;">
+                        <a href="{{ path('app_contact') }}" class="btn hero-btn-main">
+                            Plan een demo
+                        </a>
+                        <a href="{{ path('app_app') }}" class="btn hero-btn-outline">
+                            Download pagina bekijken
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    {# HOE HET WERKT / STAPPEN #}
+    <section class="feature-section">
+        <div class="container">
+
+            <div class="section-header text-center mb-4">
+                <h2 class="section-title">Hoe werkt het?</h2>
+                <p class="section-subtitle">
+                    Binnen korte tijd kun je Werk Telefoon aanbieden aan je klanten. Simpel en schaalbaar.
+                </p>
+            </div>
+
+            <div class="wt-card p-4" style="border-radius: 22px;">
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+                        <h3 class="h5 mb-2">1) Kennismaking</h3>
+                        <p class="text-muted small mb-0">
+                            We bespreken je platform, je klanten en welke partner-vorm het best past.
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h3 class="h5 mb-2">2) Koppeling & setup</h3>
+                        <p class="text-muted small mb-0">
+                            We begeleiden de technische inrichting en koppeling met je SIP/VoIP omgeving.
+                        </p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h3 class="h5 mb-2">3) Live voor klanten</h3>
+                        <p class="text-muted small mb-0">
+                            Jij rolt het uit naar klanten. Wij ondersteunen met updates, stabiliteit en doorontwikkeling.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

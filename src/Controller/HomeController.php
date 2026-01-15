@@ -17,13 +17,13 @@ final class HomeController extends AbstractController
     #[Route('/functies', name: 'app_functies')]
     public function functies(): Response
     {
-        return $this->render('home/functies.html.twig');
+        return $this->render('/functies.html.twig');
     }
 
-    #[Route('/download', name: 'app_download')]
+    #[Route('/app', name: 'app_download')]
     public function download(): Response
     {
-        return $this->render('home/download.html.twig');
+        return $this->render('home/app.html.twig');
     }
 
     #[Route('/contact', name: 'app_contact')]
