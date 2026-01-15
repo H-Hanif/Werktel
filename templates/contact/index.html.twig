@@ -8,17 +8,53 @@
 {% endblock %}
 
 {% block body %}
+    <section class="hero-section" style="padding-bottom: 80px;">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- LINKS: tekst -->
+                <div class="col-lg-6">
+                    <p class="hero-eyebrow">Contact</p>
+
+                    <h1 class="hero-title">
+                        Neem contact op met<br>
+                        Werk Telefoon
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Heb je vragen over de app, wil je partner worden of een demo aanvragen?
+                        We denken graag met je mee en helpen je persoonlijk verder.
+                    </p>
+
+                    <ul class="hero-list">
+                        <li>✔ Vragen over functies of mogelijkheden</li>
+                        <li>✔ Partner- en whitelabel trajecten</li>
+                        <li>✔ Technische vragen of integraties</li>
+                    </ul>
+
+                    <p class="hero-subtitle" style="margin-top: 14px;">
+                        Vul het contactformulier hieronder in en we nemen zo snel mogelijk contact met je op.
+                        Liever direct schakelen? Dat kan natuurlijk ook via e-mail of telefoon.
+                    </p>
+                </div>
+
+                <!-- RECHTS: afbeelding -->
+                <div class="col-lg-6 d-flex justify-content-center hero-visual-wrapper">
+                    <div class="hero-bg-circle">
+                        <div class="feature-media">
+                            <img src="{{ asset('img/sidebar.webp') }}"
+                                 alt="Contact met Werk Telefoon"
+                                 style="max-width: 320px; width: 100%;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section class="section contact-section">
         <div class="container" style="max-width: 980px;">
-
-            <div class="section-header text-center mb-4">
-                <h1 class="section-title mb-2">Contact</h1>
-                <p class="section-subtitle">
-                    Heb je een vraag over Werk Telefoon, wil je een demo plannen of partner worden?
-                    Laat je gegevens achter en we nemen zo snel mogelijk contact met je op.
-                </p>
-            </div>
-
             {# Succesmelding: /contact?success=1 #}
             {% if app.request.query.get('success') %}
                 <div class="alert alert-success mb-4">
