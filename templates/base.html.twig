@@ -1176,10 +1176,29 @@
         </div>
 
         <div class="footer-links">
+            <a href="{{ path('app_home') }}"> Home</a>
+            <a class="nav-link"
+               href="{{ app.request.get('_route') == 'app_home' ? '#ons-bedrijf' : path('app_home') ~ '#ons-bedrijf' }}">
+                Over ons
+            </a>
+            <a class="nav-link {{ app.request.get('_route') == 'app_function' ? 'active' : '' }}"
+               href="{{ path('app_function') }}">
+                App
+            </a>
+            <a class="nav-link" href="{{ path('app_app') }}">
+                Download
+            </a>
+            <a class="nav-link" href="{{ path('app_partner_worden') }}">
+                Partner Worden
+            </a>
+            <a class="nav-link" href="{{ path('app_contact') }}">
+                Contact
+            </a>
             <a href="{{ path('app_contact') }}">Contact</a>
             <a href="{{ path('app_privacy') }}"> Privacybeleid</a>
             <a href="{{ path('app_algmeen_voorwaarden') }}"> Algemene voorwaarden</a>
         </div>
+
 
         <hr class="footer-divider">
 
