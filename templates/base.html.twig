@@ -1125,8 +1125,34 @@
             display: block;
             filter: drop-shadow(0 18px 30px rgba(0,0,0,0.14));
         }
+        /* =========================
+           APP HERO – SPECIFIEK
+           ========================= */
 
+        .app-hero{
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 0 !important;
+            min-height: 620px;        /* iets hoger voor grotere telefoon */
+        }
 
+        /* Rechter kolom als anker */
+        .app-hero .app-hero-image-col{
+            position: relative;
+            min-height: 620px;
+        }
+
+        /* Telefoon: groter + rechts onder */
+        .app-hero .app-hero-img-clean{
+            position: absolute;
+            right: -40px;            /* iets buiten beeld voor premium look */
+            bottom: -20px;           /* tegen onderrand aan */
+            width: 620px;            /* 🔥 GROTER */
+            max-width: none;         /* belangrijk! */
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 25px 40px rgba(0,0,0,0.18));
+        }
 
 
 
