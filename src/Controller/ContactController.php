@@ -11,9 +11,9 @@ use Symfony\Component\Mime\Email;
 
 final class ContactController extends AbstractController
 {
-    // ✅ Aangepast naar Werk Tel
-    private string $toAdmin   = 'yaser@easysolutions.nl';         // waar jij het bericht wilt ontvangen
-    private string $fromEmail = 'info@werktel.nl';                // afzender (mailbox op je server / Strato)
+    // ✅ Werk Tel instellingen
+    private string $toAdmin   = 'yaser@easysolutions.nl';
+    private string $fromEmail = 'info@werktel.nl';
     private string $fromName  = 'Werk Tel';
     private string $siteUrl   = 'https://werktel.nl';
     private string $logoUrl   = 'https://werktel.nl/logo.png';
@@ -21,6 +21,7 @@ final class ContactController extends AbstractController
     #[Route('/contact', name: 'app_contact', methods: ['GET', 'POST'])]
     public function index(Request $request, MailerInterface $mailer): Response
     {
+        // Form values (blijven staan bij errors)
         $formData = [
             'naam'     => '',
             'bedrijf'  => '',
@@ -28,21 +29,26 @@ final class ContactController extends AbstractController
             'telefoon' => '',
             'bericht'  => '',
         ];
+
         $errors = [];
+
+        // ✅ Success via query (?success=1)
+        if ($request->query->get('success') === '1') {
+            $this->addFlash('success', 'Bedankt! We nemen spoedig contact met je op.');
+        }
 
         if ($request->isMethod('POST')) {
             // Honeypot tegen bots
             if ($request->request->get('_honey')) {
-                $this->addFlash('success', 'Dank je wel, je bericht is ontvangen.');
-                return $this->redirectToRoute('app_contact');
+                return $this->redirectToRoute('app_contact', ['success' => 1]);
             }
 
-            // Data uit formulier
-            $formData['naam']     = $this->clean($request->request->get('Naam', ''));
-            $formData['bedrijf']  = $this->clean($request->request->get('Bedrijf', ''));
-            $formData['email']    = $this->clean($request->request->get('email', ''));
-            $formData['telefoon'] = $this->clean($request->request->get('Telefoonnummer', ''));
-            $formData['bericht']  = $this->clean($request->request->get('Bericht', ''));
+            // Data
+            $formData['naam']     = $this->clean($request->request->get('Naam'));
+            $formData['bedrijf']  = $this->clean($request->request->get('Bedrijf'));
+            $formData['email']    = $this->clean($request->request->get('email'));
+            $formData['telefoon'] = $this->clean($request->request->get('Telefoonnummer'));
+            $formData['bericht']  = $this->clean($request->request->get('Bericht'));
 
             // Validatie
             if ($formData['naam'] === '') {
@@ -55,9 +61,17 @@ final class ContactController extends AbstractController
                 $errors[] = 'Bericht ontbreekt';
             }
 
-            if (!$errors) {
-                // Tabel met velden in HTML
-                $fieldsHtml = '
+            // ❌ Errors => rode balk op dezelfde pagina
+            if (!empty($errors)) {
+                $this->addFlash('danger', 'Ontbreekt informatie: vul alle verplichte velden in.');
+                return $this->render('contact/index.html.twig', [
+                    'formData' => $formData,
+                    'errors'   => $errors,
+                ]);
+            }
+
+            // Tabel met velden in HTML
+            $fieldsHtml = '
 <table class="table">
   <tr><th>Naam</th><td>' . nl2br($formData['naam']) . '</td></tr>
   <tr><th>Bedrijf</th><td>' . nl2br($formData['bedrijf']) . '</td></tr>
@@ -66,58 +80,46 @@ final class ContactController extends AbstractController
   <tr><th>Bericht</th><td>' . nl2br($formData['bericht']) . '</td></tr>
 </table>';
 
-                // Mail naar admin
-                $subjectAdmin = "📩 Nieuw contactbericht – {$formData['naam']}" .
-                    ($formData['bedrijf'] ? " ({$formData['bedrijf']})" : "");
-                $introAdmin  = "Er is een nieuw bericht verstuurd via het contactformulier op de website. Hieronder staan de details.";
-                $footerAdmin = "Je kunt direct reageren via 'Beantwoorden' – de afzender staat als Reply-To ingesteld.";
+            // Mail naar admin
+            $subjectAdmin = "📩 Nieuw contactbericht – {$formData['naam']}" . ($formData['bedrijf'] ? " ({$formData['bedrijf']})" : "");
+            $introAdmin   = "Er is een nieuw bericht verstuurd via het contactformulier op de website. Hieronder staan de details.";
+            $footerAdmin  = "Je kunt direct reageren via 'Beantwoorden' – de afzender staat als Reply-To ingesteld.";
 
-                $htmlAdmin = $this->emailTemplate(
-                    $this->logoUrl,
-                    $subjectAdmin,
-                    $introAdmin,
-                    $fieldsHtml,
-                    $footerAdmin,
-                    $this->siteUrl
-                );
+            $htmlAdmin = $this->emailTemplate($this->logoUrl, $subjectAdmin, $introAdmin, $fieldsHtml, $footerAdmin, $this->siteUrl);
 
-                $emailAdmin = (new Email())
-                    ->from(sprintf('%s <%s>', $this->fromName, $this->fromEmail))
-                    ->to($this->toAdmin)
-                    ->replyTo(sprintf('%s <%s>', $formData['naam'], $formData['email']))
-                    ->subject($subjectAdmin)
-                    ->html($htmlAdmin);
+            $emailAdmin = (new Email())
+                ->from(sprintf('%s <%s>', $this->fromName, $this->fromEmail))
+                ->to($this->toAdmin)
+                ->replyTo(sprintf('%s <%s>', $formData['naam'], $formData['email']))
+                ->subject($subjectAdmin)
+                ->html($htmlAdmin);
 
-                // Bevestiging naar gebruiker
-                $subjectUser = "Bevestiging: we hebben je bericht ontvangen";
-                $introUser   = "Bedankt voor je bericht aan Werk Tel! We reageren doorgaans binnen 1 werkdag. Hieronder vind je een kopie van je bericht.";
-                $footerUser  = "Heb je nog een aanvulling of vraag? Antwoord gerust op deze e-mail.";
+            // Bevestiging naar gebruiker
+            $subjectUser = "Bevestiging: we hebben je bericht ontvangen";
+            $introUser   = "Bedankt voor je bericht aan Werk Tel! We reageren doorgaans binnen 1 werkdag. Hieronder vind je een kopie van je bericht.";
+            $footerUser  = "Vragen of aanvullen? Antwoord gerust op deze e-mail.";
 
-                $htmlUser = $this->emailTemplate(
-                    $this->logoUrl,
-                    $subjectUser,
-                    $introUser,
-                    $fieldsHtml,
-                    $footerUser,
-                    $this->siteUrl
-                );
+            $htmlUser = $this->emailTemplate($this->logoUrl, $subjectUser, $introUser, $fieldsHtml, $footerUser, $this->siteUrl);
 
-                $emailUser = (new Email())
-                    ->from(sprintf('%s <%s>', $this->fromName, $this->fromEmail))
-                    ->to($formData['email'])
-                    ->replyTo(sprintf('%s <%s>', $this->fromName, $this->fromEmail))
-                    ->subject($subjectUser)
-                    ->html($htmlUser);
+            $emailUser = (new Email())
+                ->from(sprintf('%s <%s>', $this->fromName, $this->fromEmail))
+                ->to($formData['email'])
+                ->replyTo(sprintf('%s <%s>', $this->fromName, $this->fromEmail))
+                ->subject($subjectUser)
+                ->html($htmlUser);
 
-                try {
-                    $mailer->send($emailAdmin);
-                    $mailer->send($emailUser);
+            try {
+                $mailer->send($emailAdmin);
+                $mailer->send($emailUser);
 
-                    $this->addFlash('success', 'Bedankt! Je bericht is succesvol verstuurd.');
-                    return $this->redirectToRoute('app_contact');
-                } catch (\Throwable $e) {
-                    $errors[] = 'Verzenden mislukt. Probeer het later opnieuw.';
-                }
+                // ✅ Redirect met succes-balk
+                return $this->redirectToRoute('app_contact', ['success' => 1]);
+            } catch (\Throwable $e) {
+                $this->addFlash('danger', 'Verzenden mislukt. Probeer het later opnieuw.');
+                return $this->render('contact/index.html.twig', [
+                    'formData' => $formData,
+                    'errors'   => ['Mailer error'],
+                ]);
             }
         }
 
@@ -127,8 +129,6 @@ final class ContactController extends AbstractController
         ]);
     }
 
-    /* ---------- helpers ---------- */
-
     private function clean(?string $v): string
     {
         $v = $v ?? '';
@@ -137,10 +137,7 @@ final class ContactController extends AbstractController
 
     private function isEmail(?string $v): bool
     {
-        if ($v === null) {
-            return false;
-        }
-        return (bool) filter_var($v, FILTER_VALIDATE_EMAIL);
+        return $v ? (bool) filter_var($v, FILTER_VALIDATE_EMAIL) : false;
     }
 
     private function emailTemplate(
@@ -152,6 +149,7 @@ final class ContactController extends AbstractController
         string $siteUrl
     ): string {
         $year = date('Y');
+
         return <<<HTML
 <!doctype html>
 <html lang="nl">

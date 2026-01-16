@@ -4,8 +4,7 @@
 
 {% block body %}
 
-    {# HERO / INTRO #}
-    <section class="hero-section" style="padding-bottom: 80px;">
+    <section class="hero-section partner-hero">
         <div class="container">
             <div class="row align-items-center">
 
@@ -28,27 +27,21 @@
                     </ul>
 
                     <div class="hero-buttons">
-                        <a href="{{ path('app_contact') }}" class="btn hero-btn-main">
-                            Vraag partnerpakket aan
-                        </a>
-                        <a href="#partner-voordelen" class="btn hero-btn-outline">
-                            Bekijk voordelen
-                        </a>
+                        <a href="{{ path('app_contact') }}" class="btn hero-btn-main">Vraag partnerpakket aan</a>
+                        <a href="#partner-voordelen" class="btn hero-btn-outline">Bekijk voordelen</a>
                     </div>
                 </div>
 
-                <div class="col-lg-6 d-flex justify-content-center hero-visual-wrapper">
-                    <div class="hero-bg-circle">
-                        <div class="feature-media">
-                            <img src="{{ asset('img/picture-200.webp') }}">
-                        </div>
-
-                    </div>
+                <div class="col-lg-6 partner-hero-image-col">
+                    <img src="{{ asset('img/mannenhand.webp') }}"
+                         alt="Samenwerking Werk Telefoon partners"
+                         class="partner-hero-img-clean">
                 </div>
 
             </div>
         </div>
     </section>
+
 
 
     {# VOORDELEN #}
@@ -128,7 +121,7 @@
                         <a href="{{ path('app_contact') }}" class="btn hero-btn-main">
                             Plan een demo
                         </a>
-                        <a href="{{ path('app_app') }}" class="btn hero-btn-outline">
+                        <a href="{{ path('app_download') }}" class="btn hero-btn-outline">
                             Download pagina bekijken
                         </a>
                     </div>
